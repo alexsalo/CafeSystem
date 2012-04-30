@@ -9,6 +9,10 @@ using System.Windows.Forms;
 
 namespace CafeSystem
 {
+    //metadata=res://*/CafeModel.csdl|res://*/CafeModel.ssdl|
+    //res://*/CafeModel.msl;provider=MySql.Data.MySqlClient;
+    //provider connection string="server=localhost;User Id=alex;
+    //database=cafesystem"
     public partial class MainForm : Form
     {        
         public MainForm()

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cafesystemModelStoreContainer" CdmEntityContainer="cafesystemEntities1">
+    <EntitySetMapping Name="ingridient">
+      <EntityTypeMapping TypeName="cafesystemModel.ingridient">
+        <MappingFragment StoreEntitySet="ingridient">
+          <ScalarProperty Name="ingridients_id" ColumnName="ingridients_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="measure_id" ColumnName="measure_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="measure">
+      <EntityTypeMapping TypeName="cafesystemModel.measure">
+        <MappingFragment StoreEntitySet="measure">
+          <ScalarProperty Name="measure_id" ColumnName="measure_id" />
+          <ScalarProperty Name="measure1" ColumnName="measure" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recipe">
+      <EntityTypeMapping TypeName="cafesystemModel.recipe">
+        <MappingFragment StoreEntitySet="recipe">
+          <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recipe_stuff">
+      <EntityTypeMapping TypeName="cafesystemModel.recipe_stuff">
+        <MappingFragment StoreEntitySet="recipe_stuff">
+          <ScalarProperty Name="ingridients_id" ColumnName="ingridients_id" />
+          <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+          <ScalarProperty Name="recipe_stuff_id" ColumnName="recipe_stuff_id" />
+          <ScalarProperty Name="count" ColumnName="count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
