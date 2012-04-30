@@ -26,5 +26,12 @@ namespace CafeSystem
             this.Hide();
             m_managerForm.Show();
         }
+
+        private void CashierMode_Click(object sender, EventArgs e)
+        {
+            CashierFrom m_cashierFrom = new CashierFrom(this);
+            this.Hide();
+            m_cashierFrom.Show();
+        }
     }
 }

@@ -62,6 +62,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CafeModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="CashierFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierFrom.Designer.cs">
+      <DependentUpon>CashierFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     <Compile Include="forms\Recipes.Designer.cs">
       <DependentUpon>Recipes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CashierFrom.resx">
+      <DependentUpon>CashierFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -61,15 +61,22 @@ namespace CafeSystem
 
         private void recipeGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var recipestuffQuery = from d in cafeContext.recipe_stuff                                 
-                                   select d.recipe_stuff_id;
+            var recipestuffQuery = from rs in cafeContext.recipe_stuff
+                                   select rs;
+                                   
+                
+                
+                //from rs in cafeContext.recipe_stuff
+                               //    where rs.recipe_id == 1//(int)recipeGridView[0, e.RowIndex].Value
+                                //   select rs.ingridients_id;
+
             try
             {
-                this.recipeGridView.DataSource = ((ObjectQuery)recipestuffQuery).Execute(MergeOption.AppendOnly);
-                recipeGridView.Columns["recipe_id"].Visible = false;
-                recipeGridView.Columns["recipe_stuff"].Visible = false;
-                recipeGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                recipeGridView.AllowUserToDeleteRows = true;
+                this.StuffGridView.DataSource = ((ObjectQuery)recipestuffQuery).Execute(MergeOption.AppendOnly);
+                //recipeGridView.Columns["recipe_id"].Visible = false;
+                //recipeGridView.Columns["recipe_stuff"].Visible = false;
+                StuffGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                StuffGridView.AllowUserToDeleteRows = true;
             }
             catch (Exception ex)
             {

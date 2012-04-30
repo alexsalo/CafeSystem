@@ -10,3 +10,4 @@ C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.MainForm.res
 C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.ManagerForm.resources
 C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.Recipes.resources
 C:\csharp\CafeSystem\CafeSystem\CafeSystem\bin\Debug\CafeSystem.exe.config
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.CashierFrom.resources
