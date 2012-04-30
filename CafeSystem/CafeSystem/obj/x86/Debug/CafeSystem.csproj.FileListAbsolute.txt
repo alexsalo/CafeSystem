@@ -1,0 +1,11 @@
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\bin\Debug\CafeSystem.exe
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\bin\Debug\CafeSystem.pdb
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.Properties.Resources.resources
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.exe
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.pdb
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.MainForm.resources
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.ManagerForm.resources
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.Recipes.resources
