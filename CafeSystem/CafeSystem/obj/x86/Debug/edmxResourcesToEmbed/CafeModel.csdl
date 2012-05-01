@@ -1,10 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="cafesystemModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-  <EntityContainer Name="cafesystemEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="cafesystemEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="department" EntityType="cafesystemModel.department" />
+    <EntitySet Name="food_category" EntityType="cafesystemModel.food_category" />
     <EntitySet Name="ingridient" EntityType="cafesystemModel.ingridient" />
     <EntitySet Name="measure" EntityType="cafesystemModel.measure" />
     <EntitySet Name="recipe" EntityType="cafesystemModel.recipe" />
     <EntitySet Name="recipe_stuff" EntityType="cafesystemModel.recipe_stuff" />
+    <EntitySet Name="supply" EntityType="cafesystemModel.supply" />
+    <EntitySet Name="worker" EntityType="cafesystemModel.worker" />
+    <AssociationSet Name="Relationship10" Association="cafesystemModel.Relationship10">
+      <End Role="department" EntitySet="department" />
+      <End Role="worker" EntitySet="worker" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship15" Association="cafesystemModel.Relationship15">
+      <End Role="food_category" EntitySet="food_category" />
+      <End Role="recipe" EntitySet="recipe" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship14" Association="cafesystemModel.Relationship14">
+      <End Role="supply" EntitySet="supply" />
+      <End Role="ingridient" EntitySet="ingridient" />
+    </AssociationSet>
     <AssociationSet Name="Relationship5" Association="cafesystemModel.Relationship5">
       <End Role="measure" EntitySet="measure" />
       <End Role="ingridient" EntitySet="ingridient" />
@@ -18,14 +34,35 @@
       <End Role="recipe_stuff" EntitySet="recipe_stuff" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="ingridient">
+  <EntityType Name="department">
     <Key>
-      <PropertyRef Name="ingridients_id" />
+      <PropertyRef Name="department_id" />
     </Key>
-    <Property Name="ingridients_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" Nullable="false" />
     <Property Name="description" Type="String" />
+    <NavigationProperty Name="worker" Relationship="cafesystemModel.Relationship10" FromRole="department" ToRole="worker" />
+  </EntityType>
+  <EntityType Name="food_category">
+    <Key>
+      <PropertyRef Name="food_category_id" />
+    </Key>
+    <Property Name="food_category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" />
+    <Property Name="description" Type="String" />
+    <NavigationProperty Name="recipe" Relationship="cafesystemModel.Relationship15" FromRole="food_category" ToRole="recipe" />
+  </EntityType>
+  <EntityType Name="ingridient">
+    <Key>
+      <PropertyRef Name="ingridient_id" />
+    </Key>
+    <Property Name="ingridient_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" />
+    <Property Name="description" Type="String" />
+    <Property Name="cost" Type="Int32" Nullable="false" />
     <Property Name="measure_id" Type="Int32" />
+    <Property Name="supply_id" Type="Int32" />
+    <NavigationProperty Name="supply" Relationship="cafesystemModel.Relationship14" FromRole="ingridient" ToRole="supply" />
     <NavigationProperty Name="measure" Relationship="cafesystemModel.Relationship5" FromRole="ingridient" ToRole="measure" />
     <NavigationProperty Name="recipe_stuff" Relationship="cafesystemModel.Relationship8" FromRole="ingridient" ToRole="recipe_stuff" />
   </EntityType>
@@ -34,7 +71,7 @@
       <PropertyRef Name="measure_id" />
     </Key>
     <Property Name="measure_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="measure1" Type="String" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" />
     <NavigationProperty Name="ingridient" Relationship="cafesystemModel.Relationship5" FromRole="measure" ToRole="ingridient" />
   </EntityType>
   <EntityType Name="recipe">
@@ -44,21 +81,80 @@
     <Property Name="recipe_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" Nullable="false" />
     <Property Name="description" Type="String" />
+    <Property Name="food_category_id" Type="Int32" />
+    <NavigationProperty Name="food_category" Relationship="cafesystemModel.Relationship15" FromRole="recipe" ToRole="food_category" />
     <NavigationProperty Name="recipe_stuff" Relationship="cafesystemModel.Relationship9" FromRole="recipe" ToRole="recipe_stuff" />
   </EntityType>
   <EntityType Name="recipe_stuff">
     <Key>
-      <PropertyRef Name="ingridients_id" />
+      <PropertyRef Name="ingridient_id" />
       <PropertyRef Name="recipe_id" />
       <PropertyRef Name="recipe_stuff_id" />
     </Key>
-    <Property Name="ingridients_id" Type="Int32" Nullable="false" />
+    <Property Name="ingridient_id" Type="Int32" Nullable="false" />
     <Property Name="recipe_id" Type="Int32" Nullable="false" />
     <Property Name="recipe_stuff_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="count" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ingridient" Relationship="cafesystemModel.Relationship8" FromRole="recipe_stuff" ToRole="ingridient" />
     <NavigationProperty Name="recipe" Relationship="cafesystemModel.Relationship9" FromRole="recipe_stuff" ToRole="recipe" />
   </EntityType>
+  <EntityType Name="supply">
+    <Key>
+      <PropertyRef Name="supply_id" />
+    </Key>
+    <Property Name="supply_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="count" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ingridient" Relationship="cafesystemModel.Relationship14" FromRole="supply" ToRole="ingridient" />
+  </EntityType>
+  <EntityType Name="worker">
+    <Key>
+      <PropertyRef Name="worker_id" />
+      <PropertyRef Name="department_id" />
+    </Key>
+    <Property Name="worker_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" />
+    <Property Name="surname" Type="String" />
+    <Property Name="cellphone" Type="String" />
+    <Property Name="department_id" Type="Int32" Nullable="false" />
+    <Property Name="password" Type="String" Nullable="false" />
+    <NavigationProperty Name="department" Relationship="cafesystemModel.Relationship10" FromRole="worker" ToRole="department" />
+  </EntityType>
+  <Association Name="Relationship10">
+    <End Role="department" Type="cafesystemModel.department" Multiplicity="1" />
+    <End Role="worker" Type="cafesystemModel.worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="department">
+        <PropertyRef Name="department_id" />
+      </Principal>
+      <Dependent Role="worker">
+        <PropertyRef Name="department_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship15">
+    <End Role="food_category" Type="cafesystemModel.food_category" Multiplicity="0..1" />
+    <End Role="recipe" Type="cafesystemModel.recipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="food_category">
+        <PropertyRef Name="food_category_id" />
+      </Principal>
+      <Dependent Role="recipe">
+        <PropertyRef Name="food_category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship14">
+    <End Role="supply" Type="cafesystemModel.supply" Multiplicity="0..1" />
+    <End Role="ingridient" Type="cafesystemModel.ingridient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="supply">
+        <PropertyRef Name="supply_id" />
+      </Principal>
+      <Dependent Role="ingridient">
+        <PropertyRef Name="supply_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="Relationship5">
     <End Role="measure" Type="cafesystemModel.measure" Multiplicity="0..1" />
     <End Role="ingridient" Type="cafesystemModel.ingridient" Multiplicity="*" />
@@ -76,10 +172,10 @@
     <End Role="recipe_stuff" Type="cafesystemModel.recipe_stuff" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ingridient">
-        <PropertyRef Name="ingridients_id" />
+        <PropertyRef Name="ingridient_id" />
       </Principal>
       <Dependent Role="recipe_stuff">
-        <PropertyRef Name="ingridients_id" />
+        <PropertyRef Name="ingridient_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

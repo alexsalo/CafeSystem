@@ -30,6 +30,7 @@
         {
             this.viewRecipes = new System.Windows.Forms.Button();
             this.back_to_main = new System.Windows.Forms.Button();
+            this.look_all_tables = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // viewRecipes
@@ -52,12 +53,23 @@
             this.back_to_main.UseVisualStyleBackColor = true;
             this.back_to_main.Click += new System.EventHandler(this.back_to_main_Click);
             // 
+            // look_all_tables
+            // 
+            this.look_all_tables.Location = new System.Drawing.Point(147, 13);
+            this.look_all_tables.Name = "look_all_tables";
+            this.look_all_tables.Size = new System.Drawing.Size(115, 58);
+            this.look_all_tables.TabIndex = 2;
+            this.look_all_tables.Text = "Look all tables";
+            this.look_all_tables.UseVisualStyleBackColor = true;
+            this.look_all_tables.Click += new System.EventHandler(this.look_all_tables_Click);
+            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.ControlBox = false;
+            this.Controls.Add(this.look_all_tables);
             this.Controls.Add(this.back_to_main);
             this.Controls.Add(this.viewRecipes);
             this.Name = "ManagerForm";
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.Button viewRecipes;
         private System.Windows.Forms.Button back_to_main;
+        private System.Windows.Forms.Button look_all_tables;
     }
 }

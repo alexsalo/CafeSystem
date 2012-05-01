@@ -29,6 +29,13 @@ namespace CafeSystem
         {
             m_mainform.Show();
             this.Close();
+        }
+
+        private void look_all_tables_Click(object sender, EventArgs e)
+        {
+            ShowAllTables m_showAllTables = new ShowAllTables(this);
+            this.Hide();
+            m_showAllTables.Show();
         }       
     }
 }

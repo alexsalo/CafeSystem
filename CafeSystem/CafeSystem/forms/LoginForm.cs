@@ -11,14 +11,14 @@ namespace CafeSystem
 {
     public partial class LoginForm : Form
     {
-        private cafesystemEntities1 cafeContext;
+        private cafesystemEntities2 cafeContext;
         private MainForm m_mainform;
         public LoginForm(MainForm F)
         {
             InitializeComponent();
             m_mainform = F;
 
-            cafeContext = new cafesystemEntities1();
+            cafeContext = new cafesystemEntities2();
             
         }
 

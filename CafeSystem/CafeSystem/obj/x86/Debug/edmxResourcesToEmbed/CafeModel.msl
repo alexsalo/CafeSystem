@@ -1,13 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="cafesystemModelStoreContainer" CdmEntityContainer="cafesystemEntities1">
+  <EntityContainerMapping StorageEntityContainer="cafesystemModelStoreContainer" CdmEntityContainer="cafesystemEntities2">
+    <EntitySetMapping Name="department">
+      <EntityTypeMapping TypeName="cafesystemModel.department">
+        <MappingFragment StoreEntitySet="department">
+          <ScalarProperty Name="department_id" ColumnName="department_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="food_category">
+      <EntityTypeMapping TypeName="cafesystemModel.food_category">
+        <MappingFragment StoreEntitySet="food_category">
+          <ScalarProperty Name="food_category_id" ColumnName="food_category_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ingridient">
       <EntityTypeMapping TypeName="cafesystemModel.ingridient">
         <MappingFragment StoreEntitySet="ingridient">
-          <ScalarProperty Name="ingridients_id" ColumnName="ingridients_id" />
+          <ScalarProperty Name="ingridient_id" ColumnName="ingridient_id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
           <ScalarProperty Name="measure_id" ColumnName="measure_id" />
+          <ScalarProperty Name="supply_id" ColumnName="supply_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -15,7 +35,7 @@
       <EntityTypeMapping TypeName="cafesystemModel.measure">
         <MappingFragment StoreEntitySet="measure">
           <ScalarProperty Name="measure_id" ColumnName="measure_id" />
-          <ScalarProperty Name="measure1" ColumnName="measure" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -25,16 +45,37 @@
           <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="food_category_id" ColumnName="food_category_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="recipe_stuff">
       <EntityTypeMapping TypeName="cafesystemModel.recipe_stuff">
         <MappingFragment StoreEntitySet="recipe_stuff">
-          <ScalarProperty Name="ingridients_id" ColumnName="ingridients_id" />
+          <ScalarProperty Name="ingridient_id" ColumnName="ingridient_id" />
           <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
           <ScalarProperty Name="recipe_stuff_id" ColumnName="recipe_stuff_id" />
           <ScalarProperty Name="count" ColumnName="count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="supply">
+      <EntityTypeMapping TypeName="cafesystemModel.supply">
+        <MappingFragment StoreEntitySet="supply">
+          <ScalarProperty Name="supply_id" ColumnName="supply_id" />
+          <ScalarProperty Name="count" ColumnName="count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="worker">
+      <EntityTypeMapping TypeName="cafesystemModel.worker">
+        <MappingFragment StoreEntitySet="worker">
+          <ScalarProperty Name="worker_id" ColumnName="worker_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="cellphone" ColumnName="cellphone" />
+          <ScalarProperty Name="department_id" ColumnName="department_id" />
+          <ScalarProperty Name="password" ColumnName="password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

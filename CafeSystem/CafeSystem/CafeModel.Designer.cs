@@ -18,6 +18,9 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
+[assembly: EdmRelationshipAttribute("cafesystemModel", "Relationship10", "department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CafeSystem.department), "worker", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CafeSystem.worker), true)]
+[assembly: EdmRelationshipAttribute("cafesystemModel", "Relationship15", "food_category", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CafeSystem.food_category), "recipe", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CafeSystem.recipe), true)]
+[assembly: EdmRelationshipAttribute("cafesystemModel", "Relationship14", "supply", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CafeSystem.supply), "ingridient", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CafeSystem.ingridient), true)]
 [assembly: EdmRelationshipAttribute("cafesystemModel", "Relationship5", "measure", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CafeSystem.measure), "ingridient", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CafeSystem.ingridient), true)]
 [assembly: EdmRelationshipAttribute("cafesystemModel", "Relationship8", "ingridient", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CafeSystem.ingridient), "recipe_stuff", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CafeSystem.recipe_stuff), true)]
 [assembly: EdmRelationshipAttribute("cafesystemModel", "Relationship9", "recipe", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CafeSystem.recipe), "recipe_stuff", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CafeSystem.recipe_stuff), true)]
@@ -31,32 +34,32 @@ namespace CafeSystem
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class cafesystemEntities1 : ObjectContext
+    public partial class cafesystemEntities2 : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new cafesystemEntities1 object using the connection string found in the 'cafesystemEntities1' section of the application configuration file.
+        /// Initializes a new cafesystemEntities2 object using the connection string found in the 'cafesystemEntities2' section of the application configuration file.
         /// </summary>
-        public cafesystemEntities1() : base("name=cafesystemEntities1", "cafesystemEntities1")
+        public cafesystemEntities2() : base("name=cafesystemEntities2", "cafesystemEntities2")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new cafesystemEntities1 object.
+        /// Initialize a new cafesystemEntities2 object.
         /// </summary>
-        public cafesystemEntities1(string connectionString) : base(connectionString, "cafesystemEntities1")
+        public cafesystemEntities2(string connectionString) : base(connectionString, "cafesystemEntities2")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new cafesystemEntities1 object.
+        /// Initialize a new cafesystemEntities2 object.
         /// </summary>
-        public cafesystemEntities1(EntityConnection connection) : base(connection, "cafesystemEntities1")
+        public cafesystemEntities2(EntityConnection connection) : base(connection, "cafesystemEntities2")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -71,6 +74,38 @@ namespace CafeSystem
         #endregion
     
         #region ObjectSet Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<department> department
+        {
+            get
+            {
+                if ((_department == null))
+                {
+                    _department = base.CreateObjectSet<department>("department");
+                }
+                return _department;
+            }
+        }
+        private ObjectSet<department> _department;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<food_category> food_category
+        {
+            get
+            {
+                if ((_food_category == null))
+                {
+                    _food_category = base.CreateObjectSet<food_category>("food_category");
+                }
+                return _food_category;
+            }
+        }
+        private ObjectSet<food_category> _food_category;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -135,9 +170,57 @@ namespace CafeSystem
             }
         }
         private ObjectSet<recipe_stuff> _recipe_stuff;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<supply> supply
+        {
+            get
+            {
+                if ((_supply == null))
+                {
+                    _supply = base.CreateObjectSet<supply>("supply");
+                }
+                return _supply;
+            }
+        }
+        private ObjectSet<supply> _supply;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<worker> worker
+        {
+            get
+            {
+                if ((_worker == null))
+                {
+                    _worker = base.CreateObjectSet<worker>("worker");
+                }
+                return _worker;
+            }
+        }
+        private ObjectSet<worker> _worker;
 
         #endregion
         #region AddTo Methods
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the department EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTodepartment(department department)
+        {
+            base.AddObject("department", department);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the food_category EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTofood_category(food_category food_category)
+        {
+            base.AddObject("food_category", food_category);
+        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the ingridient EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -170,6 +253,22 @@ namespace CafeSystem
         {
             base.AddObject("recipe_stuff", recipe_stuff);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the supply EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTosupply(supply supply)
+        {
+            base.AddObject("supply", supply);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the worker EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToworker(worker worker)
+        {
+            base.AddObject("worker", worker);
+        }
 
         #endregion
     }
@@ -178,6 +277,266 @@ namespace CafeSystem
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="cafesystemModel", Name="department")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class department : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new department object.
+        /// </summary>
+        /// <param name="department_id">Initial value of the department_id property.</param>
+        /// <param name="name">Initial value of the name property.</param>
+        public static department Createdepartment(global::System.Int32 department_id, global::System.String name)
+        {
+            department department = new department();
+            department.department_id = department_id;
+            department.name = name;
+            return department;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 department_id
+        {
+            get
+            {
+                return _department_id;
+            }
+            set
+            {
+                if (_department_id != value)
+                {
+                    Ondepartment_idChanging(value);
+                    ReportPropertyChanging("department_id");
+                    _department_id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("department_id");
+                    Ondepartment_idChanged();
+                }
+            }
+        }
+        private global::System.Int32 _department_id;
+        partial void Ondepartment_idChanging(global::System.Int32 value);
+        partial void Ondepartment_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String description
+        {
+            get
+            {
+                return _description;
+            }
+            set
+            {
+                OndescriptionChanging(value);
+                ReportPropertyChanging("description");
+                _description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("description");
+                OndescriptionChanged();
+            }
+        }
+        private global::System.String _description;
+        partial void OndescriptionChanging(global::System.String value);
+        partial void OndescriptionChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("cafesystemModel", "Relationship10", "worker")]
+        public EntityCollection<worker> worker
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<worker>("cafesystemModel.Relationship10", "worker");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<worker>("cafesystemModel.Relationship10", "worker", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="cafesystemModel", Name="food_category")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class food_category : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new food_category object.
+        /// </summary>
+        /// <param name="food_category_id">Initial value of the food_category_id property.</param>
+        /// <param name="name">Initial value of the name property.</param>
+        public static food_category Createfood_category(global::System.Int32 food_category_id, global::System.String name)
+        {
+            food_category food_category = new food_category();
+            food_category.food_category_id = food_category_id;
+            food_category.name = name;
+            return food_category;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 food_category_id
+        {
+            get
+            {
+                return _food_category_id;
+            }
+            set
+            {
+                if (_food_category_id != value)
+                {
+                    Onfood_category_idChanging(value);
+                    ReportPropertyChanging("food_category_id");
+                    _food_category_id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("food_category_id");
+                    Onfood_category_idChanged();
+                }
+            }
+        }
+        private global::System.Int32 _food_category_id;
+        partial void Onfood_category_idChanging(global::System.Int32 value);
+        partial void Onfood_category_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String description
+        {
+            get
+            {
+                return _description;
+            }
+            set
+            {
+                OndescriptionChanging(value);
+                ReportPropertyChanging("description");
+                _description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("description");
+                OndescriptionChanged();
+            }
+        }
+        private global::System.String _description;
+        partial void OndescriptionChanging(global::System.String value);
+        partial void OndescriptionChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("cafesystemModel", "Relationship15", "recipe")]
+        public EntityCollection<recipe> recipe
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<recipe>("cafesystemModel.Relationship15", "recipe");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<recipe>("cafesystemModel.Relationship15", "recipe", value);
+                }
+            }
+        }
+
+        #endregion
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -192,13 +551,15 @@ namespace CafeSystem
         /// <summary>
         /// Create a new ingridient object.
         /// </summary>
-        /// <param name="ingridients_id">Initial value of the ingridients_id property.</param>
+        /// <param name="ingridient_id">Initial value of the ingridient_id property.</param>
         /// <param name="name">Initial value of the name property.</param>
-        public static ingridient Createingridient(global::System.Int32 ingridients_id, global::System.String name)
+        /// <param name="cost">Initial value of the cost property.</param>
+        public static ingridient Createingridient(global::System.Int32 ingridient_id, global::System.String name, global::System.Int32 cost)
         {
             ingridient ingridient = new ingridient();
-            ingridient.ingridients_id = ingridients_id;
+            ingridient.ingridient_id = ingridient_id;
             ingridient.name = name;
+            ingridient.cost = cost;
             return ingridient;
         }
 
@@ -210,27 +571,27 @@ namespace CafeSystem
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ingridients_id
+        public global::System.Int32 ingridient_id
         {
             get
             {
-                return _ingridients_id;
+                return _ingridient_id;
             }
             set
             {
-                if (_ingridients_id != value)
+                if (_ingridient_id != value)
                 {
-                    Oningridients_idChanging(value);
-                    ReportPropertyChanging("ingridients_id");
-                    _ingridients_id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ingridients_id");
-                    Oningridients_idChanged();
+                    Oningridient_idChanging(value);
+                    ReportPropertyChanging("ingridient_id");
+                    _ingridient_id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ingridient_id");
+                    Oningridient_idChanged();
                 }
             }
         }
-        private global::System.Int32 _ingridients_id;
-        partial void Oningridients_idChanging(global::System.Int32 value);
-        partial void Oningridients_idChanged();
+        private global::System.Int32 _ingridient_id;
+        partial void Oningridient_idChanging(global::System.Int32 value);
+        partial void Oningridient_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -283,6 +644,30 @@ namespace CafeSystem
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 cost
+        {
+            get
+            {
+                return _cost;
+            }
+            set
+            {
+                OncostChanging(value);
+                ReportPropertyChanging("cost");
+                _cost = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("cost");
+                OncostChanged();
+            }
+        }
+        private global::System.Int32 _cost;
+        partial void OncostChanging(global::System.Int32 value);
+        partial void OncostChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> measure_id
@@ -303,10 +688,72 @@ namespace CafeSystem
         private Nullable<global::System.Int32> _measure_id;
         partial void Onmeasure_idChanging(Nullable<global::System.Int32> value);
         partial void Onmeasure_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> supply_id
+        {
+            get
+            {
+                return _supply_id;
+            }
+            set
+            {
+                Onsupply_idChanging(value);
+                ReportPropertyChanging("supply_id");
+                _supply_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("supply_id");
+                Onsupply_idChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _supply_id;
+        partial void Onsupply_idChanging(Nullable<global::System.Int32> value);
+        partial void Onsupply_idChanged();
 
         #endregion
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("cafesystemModel", "Relationship14", "supply")]
+        public supply supply
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<supply>("cafesystemModel.Relationship14", "supply").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<supply>("cafesystemModel.Relationship14", "supply").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<supply> supplyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<supply>("cafesystemModel.Relationship14", "supply");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<supply>("cafesystemModel.Relationship14", "supply", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -385,12 +832,12 @@ namespace CafeSystem
         /// Create a new measure object.
         /// </summary>
         /// <param name="measure_id">Initial value of the measure_id property.</param>
-        /// <param name="measure1">Initial value of the measure1 property.</param>
-        public static measure Createmeasure(global::System.Int32 measure_id, global::System.String measure1)
+        /// <param name="name">Initial value of the name property.</param>
+        public static measure Createmeasure(global::System.Int32 measure_id, global::System.String name)
         {
             measure measure = new measure();
             measure.measure_id = measure_id;
-            measure.measure1 = measure1;
+            measure.name = name;
             return measure;
         }
 
@@ -429,24 +876,24 @@ namespace CafeSystem
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String measure1
+        public global::System.String name
         {
             get
             {
-                return _measure1;
+                return _name;
             }
             set
             {
-                Onmeasure1Changing(value);
-                ReportPropertyChanging("measure1");
-                _measure1 = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("measure1");
-                Onmeasure1Changed();
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("name");
+                OnnameChanged();
             }
         }
-        private global::System.String _measure1;
-        partial void Onmeasure1Changing(global::System.String value);
-        partial void Onmeasure1Changed();
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
 
         #endregion
     
@@ -577,10 +1024,72 @@ namespace CafeSystem
         private global::System.String _description;
         partial void OndescriptionChanging(global::System.String value);
         partial void OndescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> food_category_id
+        {
+            get
+            {
+                return _food_category_id;
+            }
+            set
+            {
+                Onfood_category_idChanging(value);
+                ReportPropertyChanging("food_category_id");
+                _food_category_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("food_category_id");
+                Onfood_category_idChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _food_category_id;
+        partial void Onfood_category_idChanging(Nullable<global::System.Int32> value);
+        partial void Onfood_category_idChanged();
 
         #endregion
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("cafesystemModel", "Relationship15", "food_category")]
+        public food_category food_category
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<food_category>("cafesystemModel.Relationship15", "food_category").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<food_category>("cafesystemModel.Relationship15", "food_category").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<food_category> food_categoryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<food_category>("cafesystemModel.Relationship15", "food_category");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<food_category>("cafesystemModel.Relationship15", "food_category", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -620,14 +1129,14 @@ namespace CafeSystem
         /// <summary>
         /// Create a new recipe_stuff object.
         /// </summary>
-        /// <param name="ingridients_id">Initial value of the ingridients_id property.</param>
+        /// <param name="ingridient_id">Initial value of the ingridient_id property.</param>
         /// <param name="recipe_id">Initial value of the recipe_id property.</param>
         /// <param name="recipe_stuff_id">Initial value of the recipe_stuff_id property.</param>
         /// <param name="count">Initial value of the count property.</param>
-        public static recipe_stuff Createrecipe_stuff(global::System.Int32 ingridients_id, global::System.Int32 recipe_id, global::System.Int32 recipe_stuff_id, global::System.Int32 count)
+        public static recipe_stuff Createrecipe_stuff(global::System.Int32 ingridient_id, global::System.Int32 recipe_id, global::System.Int32 recipe_stuff_id, global::System.Int32 count)
         {
             recipe_stuff recipe_stuff = new recipe_stuff();
-            recipe_stuff.ingridients_id = ingridients_id;
+            recipe_stuff.ingridient_id = ingridient_id;
             recipe_stuff.recipe_id = recipe_id;
             recipe_stuff.recipe_stuff_id = recipe_stuff_id;
             recipe_stuff.count = count;
@@ -642,27 +1151,27 @@ namespace CafeSystem
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ingridients_id
+        public global::System.Int32 ingridient_id
         {
             get
             {
-                return _ingridients_id;
+                return _ingridient_id;
             }
             set
             {
-                if (_ingridients_id != value)
+                if (_ingridient_id != value)
                 {
-                    Oningridients_idChanging(value);
-                    ReportPropertyChanging("ingridients_id");
-                    _ingridients_id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ingridients_id");
-                    Oningridients_idChanged();
+                    Oningridient_idChanging(value);
+                    ReportPropertyChanging("ingridient_id");
+                    _ingridient_id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ingridient_id");
+                    Oningridient_idChanged();
                 }
             }
         }
-        private global::System.Int32 _ingridients_id;
-        partial void Oningridients_idChanging(global::System.Int32 value);
-        partial void Oningridients_idChanged();
+        private global::System.Int32 _ingridient_id;
+        partial void Oningridient_idChanging(global::System.Int32 value);
+        partial void Oningridient_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -818,6 +1327,337 @@ namespace CafeSystem
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<recipe>("cafesystemModel.Relationship9", "recipe", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="cafesystemModel", Name="supply")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class supply : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new supply object.
+        /// </summary>
+        /// <param name="supply_id">Initial value of the supply_id property.</param>
+        /// <param name="count">Initial value of the count property.</param>
+        public static supply Createsupply(global::System.Int32 supply_id, global::System.Int32 count)
+        {
+            supply supply = new supply();
+            supply.supply_id = supply_id;
+            supply.count = count;
+            return supply;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 supply_id
+        {
+            get
+            {
+                return _supply_id;
+            }
+            set
+            {
+                if (_supply_id != value)
+                {
+                    Onsupply_idChanging(value);
+                    ReportPropertyChanging("supply_id");
+                    _supply_id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("supply_id");
+                    Onsupply_idChanged();
+                }
+            }
+        }
+        private global::System.Int32 _supply_id;
+        partial void Onsupply_idChanging(global::System.Int32 value);
+        partial void Onsupply_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 count
+        {
+            get
+            {
+                return _count;
+            }
+            set
+            {
+                OncountChanging(value);
+                ReportPropertyChanging("count");
+                _count = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("count");
+                OncountChanged();
+            }
+        }
+        private global::System.Int32 _count;
+        partial void OncountChanging(global::System.Int32 value);
+        partial void OncountChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("cafesystemModel", "Relationship14", "ingridient")]
+        public EntityCollection<ingridient> ingridient
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ingridient>("cafesystemModel.Relationship14", "ingridient");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ingridient>("cafesystemModel.Relationship14", "ingridient", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="cafesystemModel", Name="worker")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class worker : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new worker object.
+        /// </summary>
+        /// <param name="worker_id">Initial value of the worker_id property.</param>
+        /// <param name="name">Initial value of the name property.</param>
+        /// <param name="department_id">Initial value of the department_id property.</param>
+        /// <param name="password">Initial value of the password property.</param>
+        public static worker Createworker(global::System.Int32 worker_id, global::System.String name, global::System.Int32 department_id, global::System.String password)
+        {
+            worker worker = new worker();
+            worker.worker_id = worker_id;
+            worker.name = name;
+            worker.department_id = department_id;
+            worker.password = password;
+            return worker;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 worker_id
+        {
+            get
+            {
+                return _worker_id;
+            }
+            set
+            {
+                if (_worker_id != value)
+                {
+                    Onworker_idChanging(value);
+                    ReportPropertyChanging("worker_id");
+                    _worker_id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("worker_id");
+                    Onworker_idChanged();
+                }
+            }
+        }
+        private global::System.Int32 _worker_id;
+        partial void Onworker_idChanging(global::System.Int32 value);
+        partial void Onworker_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String surname
+        {
+            get
+            {
+                return _surname;
+            }
+            set
+            {
+                OnsurnameChanging(value);
+                ReportPropertyChanging("surname");
+                _surname = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("surname");
+                OnsurnameChanged();
+            }
+        }
+        private global::System.String _surname;
+        partial void OnsurnameChanging(global::System.String value);
+        partial void OnsurnameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String cellphone
+        {
+            get
+            {
+                return _cellphone;
+            }
+            set
+            {
+                OncellphoneChanging(value);
+                ReportPropertyChanging("cellphone");
+                _cellphone = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("cellphone");
+                OncellphoneChanged();
+            }
+        }
+        private global::System.String _cellphone;
+        partial void OncellphoneChanging(global::System.String value);
+        partial void OncellphoneChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 department_id
+        {
+            get
+            {
+                return _department_id;
+            }
+            set
+            {
+                if (_department_id != value)
+                {
+                    Ondepartment_idChanging(value);
+                    ReportPropertyChanging("department_id");
+                    _department_id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("department_id");
+                    Ondepartment_idChanged();
+                }
+            }
+        }
+        private global::System.Int32 _department_id;
+        partial void Ondepartment_idChanging(global::System.Int32 value);
+        partial void Ondepartment_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String password
+        {
+            get
+            {
+                return _password;
+            }
+            set
+            {
+                OnpasswordChanging(value);
+                ReportPropertyChanging("password");
+                _password = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("password");
+                OnpasswordChanged();
+            }
+        }
+        private global::System.String _password;
+        partial void OnpasswordChanging(global::System.String value);
+        partial void OnpasswordChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("cafesystemModel", "Relationship10", "department")]
+        public department department
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<department>("cafesystemModel.Relationship10", "department").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<department>("cafesystemModel.Relationship10", "department").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<department> departmentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<department>("cafesystemModel.Relationship10", "department");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<department>("cafesystemModel.Relationship10", "department", value);
                 }
             }
         }

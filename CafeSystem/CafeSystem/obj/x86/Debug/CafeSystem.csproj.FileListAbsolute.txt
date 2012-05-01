@@ -12,3 +12,4 @@ C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.Recipes.reso
 C:\csharp\CafeSystem\CafeSystem\CafeSystem\bin\Debug\CafeSystem.exe.config
 C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.CashierFrom.resources
 C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.LoginForm.resources
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.ShowAllTables.resources
