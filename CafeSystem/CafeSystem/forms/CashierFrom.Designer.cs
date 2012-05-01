@@ -29,26 +29,117 @@
         private void InitializeComponent()
         {
             this.backToMainBtn = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.MakeOrderBtn = new System.Windows.Forms.Button();
+            this.DismissBtn = new System.Windows.Forms.Button();
+            this.DeleteSelectedBtn = new System.Windows.Forms.Button();
+            this.orderList = new System.Windows.Forms.ListBox();
+            this.ItemsflowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // backToMainBtn
             // 
-            this.backToMainBtn.Location = new System.Drawing.Point(28, 30);
+            this.backToMainBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.backToMainBtn.Location = new System.Drawing.Point(0, 0);
             this.backToMainBtn.Name = "backToMainBtn";
-            this.backToMainBtn.Size = new System.Drawing.Size(193, 23);
+            this.backToMainBtn.Size = new System.Drawing.Size(115, 30);
             this.backToMainBtn.TabIndex = 0;
             this.backToMainBtn.Text = "Back to main menu";
             this.backToMainBtn.UseVisualStyleBackColor = true;
             this.backToMainBtn.Click += new System.EventHandler(this.backToMainBtn_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.49686F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.50315F));
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.DeleteSelectedBtn, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.orderList, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ItemsflowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.66802F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.331975F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(636, 491);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.DismissBtn);
+            this.panel1.Controls.Add(this.MakeOrderBtn);
+            this.panel1.Controls.Add(this.backToMainBtn);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(4, 457);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(433, 30);
+            this.panel1.TabIndex = 0;
+            // 
+            // MakeOrderBtn
+            // 
+            this.MakeOrderBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.MakeOrderBtn.Location = new System.Drawing.Point(319, 0);
+            this.MakeOrderBtn.Name = "MakeOrderBtn";
+            this.MakeOrderBtn.Size = new System.Drawing.Size(114, 30);
+            this.MakeOrderBtn.TabIndex = 1;
+            this.MakeOrderBtn.Text = "Make an order";
+            this.MakeOrderBtn.UseVisualStyleBackColor = true;
+            // 
+            // DismissBtn
+            // 
+            this.DismissBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.DismissBtn.Location = new System.Drawing.Point(209, 0);
+            this.DismissBtn.Name = "DismissBtn";
+            this.DismissBtn.Size = new System.Drawing.Size(110, 30);
+            this.DismissBtn.TabIndex = 2;
+            this.DismissBtn.Text = "Dismiss";
+            this.DismissBtn.UseVisualStyleBackColor = true;
+            // 
+            // DeleteSelectedBtn
+            // 
+            this.DeleteSelectedBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DeleteSelectedBtn.Location = new System.Drawing.Point(444, 457);
+            this.DeleteSelectedBtn.Name = "DeleteSelectedBtn";
+            this.DeleteSelectedBtn.Size = new System.Drawing.Size(188, 30);
+            this.DeleteSelectedBtn.TabIndex = 1;
+            this.DeleteSelectedBtn.Text = "Delete selected";
+            this.DeleteSelectedBtn.UseVisualStyleBackColor = true;
+            // 
+            // orderList
+            // 
+            this.orderList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orderList.FormattingEnabled = true;
+            this.orderList.Location = new System.Drawing.Point(444, 4);
+            this.orderList.Name = "orderList";
+            this.orderList.Size = new System.Drawing.Size(188, 446);
+            this.orderList.TabIndex = 2;
+            // 
+            // ItemsflowLayoutPanel1
+            // 
+            this.ItemsflowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemsflowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
+            this.ItemsflowLayoutPanel1.Name = "ItemsflowLayoutPanel1";
+            this.ItemsflowLayoutPanel1.Size = new System.Drawing.Size(433, 446);
+            this.ItemsflowLayoutPanel1.TabIndex = 3;
+            // 
             // CashierFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.backToMainBtn);
+            this.ClientSize = new System.Drawing.Size(636, 491);
+            this.ControlBox = false;
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "CashierFrom";
             this.Text = "CashierFrom";
+            this.Load += new System.EventHandler(this.CashierFrom_Load);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -56,5 +147,12 @@
         #endregion
 
         private System.Windows.Forms.Button backToMainBtn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button DismissBtn;
+        private System.Windows.Forms.Button MakeOrderBtn;
+        private System.Windows.Forms.Button DeleteSelectedBtn;
+        private System.Windows.Forms.ListBox orderList;
+        private System.Windows.Forms.FlowLayoutPanel ItemsflowLayoutPanel1;
     }
 }
