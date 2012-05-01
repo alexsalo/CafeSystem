@@ -115,6 +115,7 @@
             this.DeleteSelectedBtn.TabIndex = 1;
             this.DeleteSelectedBtn.Text = "Delete selected";
             this.DeleteSelectedBtn.UseVisualStyleBackColor = true;
+            this.DeleteSelectedBtn.Click += new System.EventHandler(this.DeleteSelectedBtn_Click);
             // 
             // ItemsflowLayoutPanel1
             // 

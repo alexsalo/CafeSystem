@@ -134,5 +134,15 @@ namespace CafeSystem
             orderList.Items.Add("------------------------------------------------------" +
                 "--------------------------");
         }
+
+        private void DeleteSelectedBtn_Click(object sender, EventArgs e)
+        {
+            int index = orderList.SelectedIndex;
+            if (index > 2)
+            {
+                orderList.Items.RemoveAt(index);
+                m_currentOrder.RemoveAt(index - 3);
+            }
+        }
     }
 }
