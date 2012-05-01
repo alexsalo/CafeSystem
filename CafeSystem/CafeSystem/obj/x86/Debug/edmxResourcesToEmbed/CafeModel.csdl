@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="cafesystemModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-  <EntityContainer Name="cafesystemEntities3" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="cafesystemEntities4" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="department" EntityType="cafesystemModel.department" />
     <EntitySet Name="food_category" EntityType="cafesystemModel.food_category" />
     <EntitySet Name="ingridient" EntityType="cafesystemModel.ingridient" />
     <EntitySet Name="measure" EntityType="cafesystemModel.measure" />
+    <EntitySet Name="order_stuff" EntityType="cafesystemModel.order_stuff" />
+    <EntitySet Name="ordert" EntityType="cafesystemModel.ordert" />
     <EntitySet Name="recipe" EntityType="cafesystemModel.recipe" />
     <EntitySet Name="recipe_stuff" EntityType="cafesystemModel.recipe_stuff" />
     <EntitySet Name="supply" EntityType="cafesystemModel.supply" />
@@ -28,6 +30,14 @@
     <AssociationSet Name="Relationship8" Association="cafesystemModel.Relationship8">
       <End Role="ingridient" EntitySet="ingridient" />
       <End Role="recipe_stuff" EntitySet="recipe_stuff" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship19" Association="cafesystemModel.Relationship19">
+      <End Role="recipe" EntitySet="recipe" />
+      <End Role="order_stuff" EntitySet="order_stuff" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship20" Association="cafesystemModel.Relationship20">
+      <End Role="ordert" EntitySet="ordert" />
+      <End Role="order_stuff" EntitySet="order_stuff" />
     </AssociationSet>
     <AssociationSet Name="Relationship9" Association="cafesystemModel.Relationship9">
       <End Role="recipe" EntitySet="recipe" />
@@ -74,6 +84,27 @@
     <Property Name="name" Type="String" Nullable="false" />
     <NavigationProperty Name="ingridient" Relationship="cafesystemModel.Relationship5" FromRole="measure" ToRole="ingridient" />
   </EntityType>
+  <EntityType Name="order_stuff">
+    <Key>
+      <PropertyRef Name="order_stuff_id" />
+      <PropertyRef Name="recipe_id" />
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_stuff_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="recipe_id" Type="Int32" Nullable="false" />
+    <Property Name="order_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="recipe" Relationship="cafesystemModel.Relationship19" FromRole="order_stuff" ToRole="recipe" />
+    <NavigationProperty Name="ordert" Relationship="cafesystemModel.Relationship20" FromRole="order_stuff" ToRole="ordert" />
+  </EntityType>
+  <EntityType Name="ordert">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="totalcost" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="order_stuff" Relationship="cafesystemModel.Relationship20" FromRole="ordert" ToRole="order_stuff" />
+  </EntityType>
   <EntityType Name="recipe">
     <Key>
       <PropertyRef Name="recipe_id" />
@@ -84,6 +115,7 @@
     <Property Name="food_category_id" Type="Int32" />
     <Property Name="totalcost" Type="Int32" />
     <NavigationProperty Name="food_category" Relationship="cafesystemModel.Relationship15" FromRole="recipe" ToRole="food_category" />
+    <NavigationProperty Name="order_stuff" Relationship="cafesystemModel.Relationship19" FromRole="recipe" ToRole="order_stuff" />
     <NavigationProperty Name="recipe_stuff" Relationship="cafesystemModel.Relationship9" FromRole="recipe" ToRole="recipe_stuff" />
   </EntityType>
   <EntityType Name="recipe_stuff">
@@ -177,6 +209,30 @@
       </Principal>
       <Dependent Role="recipe_stuff">
         <PropertyRef Name="ingridient_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship19">
+    <End Role="recipe" Type="cafesystemModel.recipe" Multiplicity="1" />
+    <End Role="order_stuff" Type="cafesystemModel.order_stuff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="recipe">
+        <PropertyRef Name="recipe_id" />
+      </Principal>
+      <Dependent Role="order_stuff">
+        <PropertyRef Name="recipe_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship20">
+    <End Role="ordert" Type="cafesystemModel.ordert" Multiplicity="1" />
+    <End Role="order_stuff" Type="cafesystemModel.order_stuff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ordert">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="order_stuff">
+        <PropertyRef Name="order_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

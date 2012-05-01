@@ -13,7 +13,7 @@ namespace CafeSystem
 {
     public partial class Recipes : Form
     {
-        private cafesystemEntities3 cafeContext;
+        private cafesystemEntities4 cafeContext;
         private ManagerForm m_manageForm;
         public Recipes(ManagerForm f)
         {
@@ -32,7 +32,7 @@ namespace CafeSystem
 
         private void ShowRecipeBtn_Click(object sender, EventArgs e)
         {
-            cafeContext = new cafesystemEntities3();
+            cafeContext = new cafesystemEntities4();
             var recipeQuery = from d in cafeContext.recipe
                               select d;
             try

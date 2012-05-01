@@ -5,6 +5,8 @@
     <EntitySet Name="food_category" EntityType="cafesystemModel.Store.food_category" store:Type="Tables" Schema="cafesystem" />
     <EntitySet Name="ingridient" EntityType="cafesystemModel.Store.ingridient" store:Type="Tables" Schema="cafesystem" />
     <EntitySet Name="measure" EntityType="cafesystemModel.Store.measure" store:Type="Tables" Schema="cafesystem" />
+    <EntitySet Name="order_stuff" EntityType="cafesystemModel.Store.order_stuff" store:Type="Tables" Schema="cafesystem" />
+    <EntitySet Name="ordert" EntityType="cafesystemModel.Store.ordert" store:Type="Tables" Schema="cafesystem" />
     <EntitySet Name="recipe" EntityType="cafesystemModel.Store.recipe" store:Type="Tables" Schema="cafesystem" />
     <EntitySet Name="recipe_stuff" EntityType="cafesystemModel.Store.recipe_stuff" store:Type="Tables" Schema="cafesystem" />
     <EntitySet Name="supply" EntityType="cafesystemModel.Store.supply" store:Type="Tables" Schema="cafesystem" />
@@ -20,6 +22,14 @@
     <AssociationSet Name="Relationship15" Association="cafesystemModel.Store.Relationship15">
       <End Role="food_category" EntitySet="food_category" />
       <End Role="recipe" EntitySet="recipe" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship19" Association="cafesystemModel.Store.Relationship19">
+      <End Role="recipe" EntitySet="recipe" />
+      <End Role="order_stuff" EntitySet="order_stuff" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship20" Association="cafesystemModel.Store.Relationship20">
+      <End Role="ordert" EntitySet="ordert" />
+      <End Role="order_stuff" EntitySet="order_stuff" />
     </AssociationSet>
     <AssociationSet Name="Relationship5" Association="cafesystemModel.Store.Relationship5">
       <End Role="measure" EntitySet="measure" />
@@ -67,6 +77,24 @@
     </Key>
     <Property Name="measure_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="char" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="order_stuff">
+    <Key>
+      <PropertyRef Name="order_stuff_id" />
+      <PropertyRef Name="recipe_id" />
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_stuff_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="recipe_id" Type="int" Nullable="false" />
+    <Property Name="order_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ordert">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="totalcost" Type="int" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="recipe">
     <Key>
@@ -141,6 +169,30 @@
       </Principal>
       <Dependent Role="recipe">
         <PropertyRef Name="food_category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship19">
+    <End Role="recipe" Type="cafesystemModel.Store.recipe" Multiplicity="1" />
+    <End Role="order_stuff" Type="cafesystemModel.Store.order_stuff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="recipe">
+        <PropertyRef Name="recipe_id" />
+      </Principal>
+      <Dependent Role="order_stuff">
+        <PropertyRef Name="recipe_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship20">
+    <End Role="ordert" Type="cafesystemModel.Store.ordert" Multiplicity="1" />
+    <End Role="order_stuff" Type="cafesystemModel.Store.order_stuff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ordert">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="order_stuff">
+        <PropertyRef Name="order_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

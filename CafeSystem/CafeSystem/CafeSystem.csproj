@@ -95,10 +95,10 @@
     <Compile Include="forms\Recipes.Designer.cs">
       <DependentUpon>Recipes.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShowAllTables.cs">
+    <Compile Include="forms\ShowAllTables.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShowAllTables.Designer.cs">
+    <Compile Include="forms\ShowAllTables.Designer.cs">
       <DependentUpon>ShowAllTables.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="forms\CashierFrom.resx">
@@ -125,7 +125,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ShowAllTables.resx">
+    <EmbeddedResource Include="forms\ShowAllTables.resx">
       <DependentUpon>ShowAllTables.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />

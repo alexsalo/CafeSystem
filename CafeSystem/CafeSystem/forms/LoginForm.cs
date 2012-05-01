@@ -12,7 +12,7 @@ namespace CafeSystem
     public partial class LoginForm : Form
     {
 
-        private cafesystemEntities3 cafeContext;
+        private cafesystemEntities4 cafeContext;
         private MainForm m_mainform;
         private int m_departmentCallFrom;
         public LoginForm(MainForm F, int DEP)
@@ -20,7 +20,7 @@ namespace CafeSystem
             InitializeComponent();
             m_mainform = F;
             m_departmentCallFrom = DEP;
-            cafeContext = new cafesystemEntities3();
+            cafeContext = new cafesystemEntities4();
 
             ///test purposes
             if (DEP == Constants.MANAGERDEP_ID)

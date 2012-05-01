@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="cafesystemModelStoreContainer" CdmEntityContainer="cafesystemEntities3">
+  <EntityContainerMapping StorageEntityContainer="cafesystemModelStoreContainer" CdmEntityContainer="cafesystemEntities4">
     <EntitySetMapping Name="department">
       <EntityTypeMapping TypeName="cafesystemModel.department">
         <MappingFragment StoreEntitySet="department">
@@ -36,6 +36,24 @@
         <MappingFragment StoreEntitySet="measure">
           <ScalarProperty Name="measure_id" ColumnName="measure_id" />
           <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="order_stuff">
+      <EntityTypeMapping TypeName="cafesystemModel.order_stuff">
+        <MappingFragment StoreEntitySet="order_stuff">
+          <ScalarProperty Name="order_stuff_id" ColumnName="order_stuff_id" />
+          <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ordert">
+      <EntityTypeMapping TypeName="cafesystemModel.ordert">
+        <MappingFragment StoreEntitySet="ordert">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="totalcost" ColumnName="totalcost" />
+          <ScalarProperty Name="date" ColumnName="date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -10,6 +10,8 @@
           <EntitySet Name="food_category" EntityType="cafesystemModel.Store.food_category" store:Type="Tables" Schema="cafesystem" />
           <EntitySet Name="ingridient" EntityType="cafesystemModel.Store.ingridient" store:Type="Tables" Schema="cafesystem" />
           <EntitySet Name="measure" EntityType="cafesystemModel.Store.measure" store:Type="Tables" Schema="cafesystem" />
+          <EntitySet Name="order_stuff" EntityType="cafesystemModel.Store.order_stuff" store:Type="Tables" Schema="cafesystem" />
+          <EntitySet Name="ordert" EntityType="cafesystemModel.Store.ordert" store:Type="Tables" Schema="cafesystem" />
           <EntitySet Name="recipe" EntityType="cafesystemModel.Store.recipe" store:Type="Tables" Schema="cafesystem" />
           <EntitySet Name="recipe_stuff" EntityType="cafesystemModel.Store.recipe_stuff" store:Type="Tables" Schema="cafesystem" />
           <EntitySet Name="supply" EntityType="cafesystemModel.Store.supply" store:Type="Tables" Schema="cafesystem" />
@@ -25,6 +27,14 @@
           <AssociationSet Name="Relationship15" Association="cafesystemModel.Store.Relationship15">
             <End Role="food_category" EntitySet="food_category" />
             <End Role="recipe" EntitySet="recipe" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship19" Association="cafesystemModel.Store.Relationship19">
+            <End Role="recipe" EntitySet="recipe" />
+            <End Role="order_stuff" EntitySet="order_stuff" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship20" Association="cafesystemModel.Store.Relationship20">
+            <End Role="ordert" EntitySet="ordert" />
+            <End Role="order_stuff" EntitySet="order_stuff" />
           </AssociationSet>
           <AssociationSet Name="Relationship5" Association="cafesystemModel.Store.Relationship5">
             <End Role="measure" EntitySet="measure" />
@@ -72,6 +82,24 @@
           </Key>
           <Property Name="measure_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="char" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="order_stuff">
+          <Key>
+            <PropertyRef Name="order_stuff_id" />
+            <PropertyRef Name="recipe_id" />
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_stuff_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="recipe_id" Type="int" Nullable="false" />
+          <Property Name="order_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ordert">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="totalcost" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="recipe">
           <Key>
@@ -149,6 +177,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Relationship19">
+          <End Role="recipe" Type="cafesystemModel.Store.recipe" Multiplicity="1" />
+          <End Role="order_stuff" Type="cafesystemModel.Store.order_stuff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="recipe">
+              <PropertyRef Name="recipe_id" />
+            </Principal>
+            <Dependent Role="order_stuff">
+              <PropertyRef Name="recipe_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship20">
+          <End Role="ordert" Type="cafesystemModel.Store.ordert" Multiplicity="1" />
+          <End Role="order_stuff" Type="cafesystemModel.Store.order_stuff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordert">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="order_stuff">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Relationship5">
           <End Role="measure" Type="cafesystemModel.Store.measure" Multiplicity="0..1" />
           <End Role="ingridient" Type="cafesystemModel.Store.ingridient" Multiplicity="*" />
@@ -190,11 +242,13 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="cafesystemModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="cafesystemEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="cafesystemEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="department" EntityType="cafesystemModel.department" />
           <EntitySet Name="food_category" EntityType="cafesystemModel.food_category" />
           <EntitySet Name="ingridient" EntityType="cafesystemModel.ingridient" />
           <EntitySet Name="measure" EntityType="cafesystemModel.measure" />
+          <EntitySet Name="order_stuff" EntityType="cafesystemModel.order_stuff" />
+          <EntitySet Name="ordert" EntityType="cafesystemModel.ordert" />
           <EntitySet Name="recipe" EntityType="cafesystemModel.recipe" />
           <EntitySet Name="recipe_stuff" EntityType="cafesystemModel.recipe_stuff" />
           <EntitySet Name="supply" EntityType="cafesystemModel.supply" />
@@ -218,6 +272,14 @@
           <AssociationSet Name="Relationship8" Association="cafesystemModel.Relationship8">
             <End Role="ingridient" EntitySet="ingridient" />
             <End Role="recipe_stuff" EntitySet="recipe_stuff" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship19" Association="cafesystemModel.Relationship19">
+            <End Role="recipe" EntitySet="recipe" />
+            <End Role="order_stuff" EntitySet="order_stuff" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship20" Association="cafesystemModel.Relationship20">
+            <End Role="ordert" EntitySet="ordert" />
+            <End Role="order_stuff" EntitySet="order_stuff" />
           </AssociationSet>
           <AssociationSet Name="Relationship9" Association="cafesystemModel.Relationship9">
             <End Role="recipe" EntitySet="recipe" />
@@ -264,6 +326,27 @@
           <Property Name="name" Type="String" Nullable="false" />
           <NavigationProperty Name="ingridient" Relationship="cafesystemModel.Relationship5" FromRole="measure" ToRole="ingridient" />
         </EntityType>
+        <EntityType Name="order_stuff">
+          <Key>
+            <PropertyRef Name="order_stuff_id" />
+            <PropertyRef Name="recipe_id" />
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_stuff_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="recipe_id" Type="Int32" Nullable="false" />
+          <Property Name="order_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="recipe" Relationship="cafesystemModel.Relationship19" FromRole="order_stuff" ToRole="recipe" />
+          <NavigationProperty Name="ordert" Relationship="cafesystemModel.Relationship20" FromRole="order_stuff" ToRole="ordert" />
+        </EntityType>
+        <EntityType Name="ordert">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="totalcost" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="order_stuff" Relationship="cafesystemModel.Relationship20" FromRole="ordert" ToRole="order_stuff" />
+        </EntityType>
         <EntityType Name="recipe">
           <Key>
             <PropertyRef Name="recipe_id" />
@@ -274,6 +357,7 @@
           <Property Name="food_category_id" Type="Int32" />
           <Property Name="totalcost" Type="Int32" />
           <NavigationProperty Name="food_category" Relationship="cafesystemModel.Relationship15" FromRole="recipe" ToRole="food_category" />
+          <NavigationProperty Name="order_stuff" Relationship="cafesystemModel.Relationship19" FromRole="recipe" ToRole="order_stuff" />
           <NavigationProperty Name="recipe_stuff" Relationship="cafesystemModel.Relationship9" FromRole="recipe" ToRole="recipe_stuff" />
         </EntityType>
         <EntityType Name="recipe_stuff">
@@ -370,6 +454,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Relationship19">
+          <End Role="recipe" Type="cafesystemModel.recipe" Multiplicity="1" />
+          <End Role="order_stuff" Type="cafesystemModel.order_stuff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="recipe">
+              <PropertyRef Name="recipe_id" />
+            </Principal>
+            <Dependent Role="order_stuff">
+              <PropertyRef Name="recipe_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship20">
+          <End Role="ordert" Type="cafesystemModel.ordert" Multiplicity="1" />
+          <End Role="order_stuff" Type="cafesystemModel.order_stuff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordert">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="order_stuff">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Relationship9">
           <End Role="recipe" Type="cafesystemModel.recipe" Multiplicity="1" />
           <End Role="recipe_stuff" Type="cafesystemModel.recipe_stuff" Multiplicity="*" />
@@ -387,7 +495,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="cafesystemModelStoreContainer" CdmEntityContainer="cafesystemEntities3">
+        <EntityContainerMapping StorageEntityContainer="cafesystemModelStoreContainer" CdmEntityContainer="cafesystemEntities4">
           <EntitySetMapping Name="department"><EntityTypeMapping TypeName="cafesystemModel.department"><MappingFragment StoreEntitySet="department">
             <ScalarProperty Name="department_id" ColumnName="department_id" />
             <ScalarProperty Name="name" ColumnName="name" />
@@ -409,6 +517,16 @@
           <EntitySetMapping Name="measure"><EntityTypeMapping TypeName="cafesystemModel.measure"><MappingFragment StoreEntitySet="measure">
             <ScalarProperty Name="measure_id" ColumnName="measure_id" />
             <ScalarProperty Name="name" ColumnName="name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="order_stuff"><EntityTypeMapping TypeName="cafesystemModel.order_stuff"><MappingFragment StoreEntitySet="order_stuff">
+            <ScalarProperty Name="order_stuff_id" ColumnName="order_stuff_id" />
+            <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+            <ScalarProperty Name="order_id" ColumnName="order_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ordert"><EntityTypeMapping TypeName="cafesystemModel.ordert"><MappingFragment StoreEntitySet="ordert">
+            <ScalarProperty Name="order_id" ColumnName="order_id" />
+            <ScalarProperty Name="totalcost" ColumnName="totalcost" />
+            <ScalarProperty Name="date" ColumnName="date" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="recipe"><EntityTypeMapping TypeName="cafesystemModel.recipe"><MappingFragment StoreEntitySet="recipe">
             <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
@@ -455,40 +573,50 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="CafeModel">
-        <EntityTypeShape EntityType="cafesystemModel.department" Width="1.5" PointX="5.75" PointY="5.25" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="cafesystemModel.food_category" Width="1.5" PointX="0.75" PointY="8.5" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="cafesystemModel.ingridient" Width="1.5" PointX="3" PointY="1" Height="2.7494921874999996" IsExpanded="true" />
-        <EntityTypeShape EntityType="cafesystemModel.measure" Width="1.5" PointX="0.75" PointY="1.5" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="cafesystemModel.recipe" Width="1.5" PointX="3" PointY="8.125" Height="2.3648893229166639" IsExpanded="true" />
-        <EntityTypeShape EntityType="cafesystemModel.recipe_stuff" Width="1.5" PointX="5.25" PointY="1.25" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="cafesystemModel.supply" Width="1.5" PointX="0.75" PointY="5.5" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="cafesystemModel.worker" Width="1.5" PointX="8" PointY="5" Height="2.3648893229166674" IsExpanded="true" />
+      <Diagram Name="CafeModel" ZoomLevel="81">
+        <EntityTypeShape EntityType="cafesystemModel.department" Width="1.5" PointX="2.5" PointY="9.25" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.food_category" Width="1.5" PointX="0.5" PointY="3.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.ingridient" Width="1.5" PointX="2.875" PointY="6" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.measure" Width="1.5" PointX="0.625" PointY="5.875" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.order_stuff" Width="1.5" PointX="2.5" PointY="0.5" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.ordert" Width="1.5" PointX="0.5" PointY="0.5" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.recipe" Width="1.5" PointX="2.375" PointY="3.125" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.recipe_stuff" Width="1.5" PointX="4.375" PointY="3.5" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.supply" Width="1.5" PointX="0.625" PointY="7.875" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.worker" Width="1.5" PointX="4.5" PointY="9" Height="2.3648893229166665" IsExpanded="true" />
         <AssociationConnector Association="cafesystemModel.Relationship10" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.25" PointY="6.1439925130208337" />
-          <ConnectorPoint PointX="8" PointY="6.1439925130208337" />
+          <ConnectorPoint PointX="4" PointY="10.143992513020834" />
+          <ConnectorPoint PointX="4.5" PointY="10.143992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="cafesystemModel.Relationship15" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.3939925130208337" />
-          <ConnectorPoint PointX="3" PointY="9.3939925130208337" />
+          <ConnectorPoint PointX="2" PointY="4.0189925130208337" />
+          <ConnectorPoint PointX="2.375" PointY="4.0189925130208337" />
         </AssociationConnector>
         <AssociationConnector Association="cafesystemModel.Relationship14" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="6.297841796875" />
-          <ConnectorPoint PointX="3.75" PointY="6.297841796875" />
-          <ConnectorPoint PointX="3.75" PointY="3.7494921874999996" />
+          <ConnectorPoint PointX="2.125" PointY="8.31224609375" />
+          <ConnectorPoint PointX="2.875" PointY="8.31224609375" />
         </AssociationConnector>
         <AssociationConnector Association="cafesystemModel.Relationship5" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="2.297841796875" />
-          <ConnectorPoint PointX="3" PointY="2.297841796875" />
+          <ConnectorPoint PointX="2.125" PointY="6.735341796875" />
+          <ConnectorPoint PointX="2.875" PointY="6.735341796875" />
         </AssociationConnector>
         <AssociationConnector Association="cafesystemModel.Relationship8" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="2.3362939453125" />
-          <ConnectorPoint PointX="5.25" PointY="2.3362939453125" />
+          <ConnectorPoint PointX="3.625" PointY="6" />
+          <ConnectorPoint PointX="3.625" PointY="5.8261878906249995" />
+          <ConnectorPoint PointX="5.125" PointY="5.8261878906249995" />
+          <ConnectorPoint PointX="5.125" PointY="5.672587890625" />
+        </AssociationConnector>
+        <AssociationConnector Association="cafesystemModel.Relationship19" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.1875" PointY="3.125" />
+          <ConnectorPoint PointX="3.1875" PointY="2.4802864583333317" />
+        </AssociationConnector>
+        <AssociationConnector Association="cafesystemModel.Relationship20" ManuallyRouted="false">
+          <ConnectorPoint PointX="2" PointY="1.3939925130208333" />
+          <ConnectorPoint PointX="2.5" PointY="1.3939925130208333" />
         </AssociationConnector>
         <AssociationConnector Association="cafesystemModel.Relationship9" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="9.3074446614583319" />
-          <ConnectorPoint PointX="5.46875" PointY="9.3074446614583319" />
-          <ConnectorPoint PointX="5.46875" PointY="3.4225878906249996" />
+          <ConnectorPoint PointX="3.875" PointY="4.5862939453125" />
+          <ConnectorPoint PointX="4.375" PointY="4.5862939453125" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

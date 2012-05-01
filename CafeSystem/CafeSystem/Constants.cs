@@ -6,7 +6,7 @@ namespace CafeSystem
     {
         public const int CASHIERDEP_ID = 1;
         public const int MANAGERDEP_ID = 2;
-        private int ordernum = 0;
+        //private int ordernum = 0;
 
         private static Constants functions;
         private Constants() {}
@@ -23,8 +23,7 @@ namespace CafeSystem
 
         public int ORDER_NUM()
         {
-            ordernum++;
-            return ordernum;
+            return (int)DateTime.Now.ToBinary();
         }
     }
 }
