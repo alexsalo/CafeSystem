@@ -62,6 +62,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CafeModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="forms\CashierFrom.cs">
       <SubType>Form</SubType>
     </Compile>

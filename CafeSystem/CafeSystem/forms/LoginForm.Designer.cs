@@ -40,7 +40,7 @@
             this.login_tb.Name = "login_tb";
             this.login_tb.Size = new System.Drawing.Size(212, 20);
             this.login_tb.TabIndex = 0;
-            this.login_tb.Text = "dummy";
+            this.login_tb.Text = "dummy1";
             // 
             // pass_tb
             // 
