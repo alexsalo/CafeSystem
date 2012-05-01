@@ -92,7 +92,7 @@
     <Key>
       <PropertyRef Name="order_id" />
     </Key>
-    <Property Name="order_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="order_id" Type="int" Nullable="false" />
     <Property Name="totalcost" Type="int" Nullable="false" />
     <Property Name="date" Type="datetime" Nullable="false" />
   </EntityType>

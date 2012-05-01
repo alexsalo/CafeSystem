@@ -23,7 +23,9 @@ namespace CafeSystem
 
         public int ORDER_NUM()
         {
-            return (int)DateTime.Now.ToBinary();
+            string[] s = DateTime.Now.ToString().Split(':','.',' ');
+            string s2 = s[0] + s[1] + s[2].Substring(3) + s[3] + s[4] + s[5];
+            return Int32.Parse(s2);
         }
     }
 }

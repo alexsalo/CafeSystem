@@ -108,15 +108,15 @@ namespace CafeSystem
             o.totalcost = getCurrentCost();
             o.order_id = m_currentORDERNUM;
             cafeContext.AddToordert(o);
-            cafeContext.SaveChanges();
 
-            order_stuff os = new order_stuff();
-            foreach (recipe r in m_currentOrder)
-            {
-                os.order_id = m_currentORDERNUM;
-                os.recipe_id = r.recipe_id;
-            }
-            cafeContext.AddToorder_stuff(os);
+            
+            foreach (recipe r in m_currentOrder)                            
+                cafeContext.AddToorder_stuff(new order_stuff()
+                {
+                    order_id = m_currentORDERNUM,
+                    recipe_id = r.recipe_id,
+                });           
+            
             cafeContext.SaveChanges();
             
             m_currentOrder.Clear();
