@@ -34,32 +34,32 @@ namespace CafeSystem
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class cafesystemEntities2 : ObjectContext
+    public partial class cafesystemEntities3 : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new cafesystemEntities2 object using the connection string found in the 'cafesystemEntities2' section of the application configuration file.
+        /// Initializes a new cafesystemEntities3 object using the connection string found in the 'cafesystemEntities3' section of the application configuration file.
         /// </summary>
-        public cafesystemEntities2() : base("name=cafesystemEntities2", "cafesystemEntities2")
+        public cafesystemEntities3() : base("name=cafesystemEntities3", "cafesystemEntities3")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new cafesystemEntities2 object.
+        /// Initialize a new cafesystemEntities3 object.
         /// </summary>
-        public cafesystemEntities2(string connectionString) : base(connectionString, "cafesystemEntities2")
+        public cafesystemEntities3(string connectionString) : base(connectionString, "cafesystemEntities3")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new cafesystemEntities2 object.
+        /// Initialize a new cafesystemEntities3 object.
         /// </summary>
-        public cafesystemEntities2(EntityConnection connection) : base(connection, "cafesystemEntities2")
+        public cafesystemEntities3(EntityConnection connection) : base(connection, "cafesystemEntities3")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -1048,6 +1048,30 @@ namespace CafeSystem
         private Nullable<global::System.Int32> _food_category_id;
         partial void Onfood_category_idChanging(Nullable<global::System.Int32> value);
         partial void Onfood_category_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> totalcost
+        {
+            get
+            {
+                return _totalcost;
+            }
+            set
+            {
+                OntotalcostChanging(value);
+                ReportPropertyChanging("totalcost");
+                _totalcost = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("totalcost");
+                OntotalcostChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _totalcost;
+        partial void OntotalcostChanging(Nullable<global::System.Int32> value);
+        partial void OntotalcostChanged();
 
         #endregion
     

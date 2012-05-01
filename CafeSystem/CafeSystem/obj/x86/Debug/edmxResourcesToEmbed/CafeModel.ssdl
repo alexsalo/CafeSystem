@@ -76,6 +76,7 @@
     <Property Name="name" Type="char" Nullable="false" MaxLength="20" />
     <Property Name="description" Type="char" MaxLength="200" />
     <Property Name="food_category_id" Type="int" />
+    <Property Name="totalcost" Type="int" />
   </EntityType>
   <EntityType Name="recipe_stuff">
     <Key>

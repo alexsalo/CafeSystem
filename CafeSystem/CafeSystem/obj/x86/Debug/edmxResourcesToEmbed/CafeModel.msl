@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="cafesystemModelStoreContainer" CdmEntityContainer="cafesystemEntities2">
+  <EntityContainerMapping StorageEntityContainer="cafesystemModelStoreContainer" CdmEntityContainer="cafesystemEntities3">
     <EntitySetMapping Name="department">
       <EntityTypeMapping TypeName="cafesystemModel.department">
         <MappingFragment StoreEntitySet="department">
@@ -46,6 +46,7 @@
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="food_category_id" ColumnName="food_category_id" />
+          <ScalarProperty Name="totalcost" ColumnName="totalcost" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

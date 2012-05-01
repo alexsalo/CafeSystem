@@ -13,7 +13,7 @@ namespace CafeSystem
 {
     public partial class ShowAllTables : Form
     {
-        private cafesystemEntities2 cafeContext;
+        private cafesystemEntities3 cafeContext;
         private ManagerForm m_mangerForm;
         public ShowAllTables(ManagerForm F)
         {
@@ -29,7 +29,7 @@ namespace CafeSystem
 
         private void Load_data_Click(object sender, EventArgs e)
         {
-            cafeContext = new cafesystemEntities2();
+            cafeContext = new cafesystemEntities3();
             var foodQuery = from f in cafeContext.food_category select f;
             var recipeQuery = from r in cafeContext.recipe select r;
             var recipestuffQuery = from rs in cafeContext.recipe_stuff select rs;
