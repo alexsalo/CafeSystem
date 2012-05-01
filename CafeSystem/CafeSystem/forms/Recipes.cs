@@ -24,20 +24,10 @@ namespace CafeSystem
         private void button1_Click(object sender, EventArgs e)
         {
             //Dispose the object context.
-            cafeContext.Dispose();
+            if (cafeContext != null)
+                cafeContext.Dispose();
             m_manageForm.Show();
             this.Close();
-        }
-
-        private const int CP_NOCLOSE_BUTTON = 0x200;
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams myCp = base.CreateParams;
-                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
-                return myCp;
-            }
         }
 
         private void ShowRecipeBtn_Click(object sender, EventArgs e)

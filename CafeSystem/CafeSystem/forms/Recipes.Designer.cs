@@ -33,9 +33,9 @@
             this.recipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.saveChanges = new System.Windows.Forms.Button();
             this.ShowRecipeBtn = new System.Windows.Forms.Button();
             this.back_to_manager = new System.Windows.Forms.Button();
-            this.saveChanges = new System.Windows.Forms.Button();
             this.DeleteRecipe = new System.Windows.Forms.Button();
             this.StuffGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.recipeGridView)).BeginInit();
@@ -84,6 +84,17 @@
             this.panel1.Size = new System.Drawing.Size(370, 28);
             this.panel1.TabIndex = 6;
             // 
+            // saveChanges
+            // 
+            this.saveChanges.Dock = System.Windows.Forms.DockStyle.Right;
+            this.saveChanges.Location = new System.Drawing.Point(268, 0);
+            this.saveChanges.Name = "saveChanges";
+            this.saveChanges.Size = new System.Drawing.Size(102, 28);
+            this.saveChanges.TabIndex = 6;
+            this.saveChanges.Text = "Update";
+            this.saveChanges.UseVisualStyleBackColor = true;
+            this.saveChanges.Click += new System.EventHandler(this.saveChanges_Click);
+            // 
             // ShowRecipeBtn
             // 
             this.ShowRecipeBtn.Dock = System.Windows.Forms.DockStyle.Left;
@@ -105,17 +116,6 @@
             this.back_to_manager.Text = "Back to manager routine";
             this.back_to_manager.UseVisualStyleBackColor = true;
             this.back_to_manager.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // saveChanges
-            // 
-            this.saveChanges.Dock = System.Windows.Forms.DockStyle.Right;
-            this.saveChanges.Location = new System.Drawing.Point(268, 0);
-            this.saveChanges.Name = "saveChanges";
-            this.saveChanges.Size = new System.Drawing.Size(102, 28);
-            this.saveChanges.TabIndex = 6;
-            this.saveChanges.Text = "Update";
-            this.saveChanges.UseVisualStyleBackColor = true;
-            this.saveChanges.Click += new System.EventHandler(this.saveChanges_Click);
             // 
             // DeleteRecipe
             // 
@@ -142,6 +142,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 349);
+            this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Recipes";
             this.Text = "Recipes";

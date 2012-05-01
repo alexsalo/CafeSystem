@@ -14,7 +14,7 @@ namespace CafeSystem
     //provider connection string="server=localhost;User Id=alex;
     //database=cafesystem"
     public partial class MainForm : Form
-    {        
+    {
         public MainForm()
         {
             InitializeComponent();
@@ -29,9 +29,10 @@ namespace CafeSystem
 
         private void CashierMode_Click(object sender, EventArgs e)
         {
-            CashierFrom m_cashierFrom = new CashierFrom(this);
+            //CashierFrom m_cashierFrom = new CashierFrom(this);
+            LoginForm m_loginFoem = new LoginForm(this);
             this.Hide();
-            m_cashierFrom.Show();
+            m_loginFoem.Show();
         }
     }
 }

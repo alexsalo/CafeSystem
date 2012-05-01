@@ -62,10 +62,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CafeModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="CashierFrom.cs">
+    <Compile Include="forms\CashierFrom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CashierFrom.Designer.cs">
+    <Compile Include="forms\CashierFrom.Designer.cs">
       <DependentUpon>CashierFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\MainForm.cs">
@@ -80,6 +80,12 @@
     <Compile Include="forms\ManagerForm.Designer.cs">
       <DependentUpon>ManagerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="forms\Recipes.cs">
@@ -88,7 +94,7 @@
     <Compile Include="forms\Recipes.Designer.cs">
       <DependentUpon>Recipes.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CashierFrom.resx">
+    <EmbeddedResource Include="forms\CashierFrom.resx">
       <DependentUpon>CashierFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\MainForm.resx">
@@ -99,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Recipes.resx">
       <DependentUpon>Recipes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
