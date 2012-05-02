@@ -139,7 +139,7 @@
           <Property Name="surname" Type="char" MaxLength="20" />
           <Property Name="cellphone" Type="char" MaxLength="20" />
           <Property Name="department_id" Type="int" Nullable="false" />
-          <Property Name="password" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="password" Type="char" MaxLength="41" />
         </EntityType>
         <Association Name="Relationship10">
           <End Role="department" Type="cafesystemModel.Store.department" Multiplicity="1" />

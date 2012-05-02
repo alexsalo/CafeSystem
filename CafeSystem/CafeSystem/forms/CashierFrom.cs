@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace CafeSystem
 {
+    //mvvm
     public partial class CashierFrom : Form
     {
         private MainForm m_mainForm;
@@ -46,6 +47,7 @@ namespace CafeSystem
                                              select r;
             recipe[] rA = recipeQuery.ToArray();
             List<Button> btnlist = new List<Button>();
+
             foreach (recipe r in rA)
             {
                 r.totalcost = 0;

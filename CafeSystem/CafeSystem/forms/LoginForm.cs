@@ -43,7 +43,7 @@ namespace CafeSystem
                         case Constants.CASHIERDEP_ID:
                             if (w.department_id == Constants.CASHIERDEP_ID
                                 || w.department_id == Constants.MANAGERDEP_ID)
-                                if (pass_tb.Text == w.password)
+                                if (MD5cheksum.verifyMd5Hash(pass_tb.Text, w.password))
                                 {
                                     CashierFrom m_cashierForm = new CashierFrom(m_mainform);
                                     m_cashierForm.Show();
@@ -56,7 +56,7 @@ namespace CafeSystem
 
                         case Constants.MANAGERDEP_ID:
                             if (w.department_id == Constants.MANAGERDEP_ID)
-                                if (pass_tb.Text == w.password)
+                                if (MD5cheksum.verifyMd5Hash(pass_tb.Text, w.password))
                                 {
                                     ManagerForm m_managerForm = new ManagerForm(m_mainform);
                                     m_managerForm.Show();

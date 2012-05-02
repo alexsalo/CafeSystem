@@ -29,67 +29,78 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.recipeGridView = new System.Windows.Forms.DataGridView();
             this.recipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.recipeLayoutTable = new System.Windows.Forms.TableLayoutPanel();
+            this.food_category_lb = new System.Windows.Forms.ListBox();
+            this.recipe_lb = new System.Windows.Forms.ListBox();
+            this.ingridients_lb = new System.Windows.Forms.ListBox();
             this.saveChanges = new System.Windows.Forms.Button();
             this.ShowRecipeBtn = new System.Windows.Forms.Button();
             this.back_to_manager = new System.Windows.Forms.Button();
             this.DeleteRecipe = new System.Windows.Forms.Button();
-            this.StuffGridView = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeGridView)).BeginInit();
+            this.mainRecipeTable = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonsPanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.recipeBindingSource)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.recipeLayoutTable.SuspendLayout();
+            this.mainRecipeTable.SuspendLayout();
+            this.buttonsPanel.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.StuffGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // recipeGridView
+            // recipeLayoutTable
             // 
-            this.recipeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.recipeGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.recipeGridView.Location = new System.Drawing.Point(3, 39);
-            this.recipeGridView.Name = "recipeGridView";
-            this.recipeGridView.Size = new System.Drawing.Size(370, 307);
-            this.recipeGridView.TabIndex = 1;
-            this.recipeGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.recipeGridView_CellClick);
-            this.recipeGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.recipeGridView_CellMouseDown);
+            this.recipeLayoutTable.ColumnCount = 3;
+            this.recipeLayoutTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.recipeLayoutTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
+            this.recipeLayoutTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 214F));
+            this.recipeLayoutTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 243F));
+            this.recipeLayoutTable.Controls.Add(this.food_category_lb, 0, 0);
+            this.recipeLayoutTable.Controls.Add(this.recipe_lb, 1, 0);
+            this.recipeLayoutTable.Controls.Add(this.ingridients_lb, 2, 0);
+            this.recipeLayoutTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recipeLayoutTable.Location = new System.Drawing.Point(3, 35);
+            this.recipeLayoutTable.Name = "recipeLayoutTable";
+            this.recipeLayoutTable.RowCount = 1;
+            this.recipeLayoutTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.recipeLayoutTable.Size = new System.Drawing.Size(632, 311);
+            this.recipeLayoutTable.TabIndex = 7;
             // 
-            // tableLayoutPanel1
+            // food_category_lb
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 262F));
-            this.tableLayoutPanel1.Controls.Add(this.recipeGridView, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.DeleteRecipe, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.StuffGridView, 1, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 313F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(638, 349);
-            this.tableLayoutPanel1.TabIndex = 7;
+            this.food_category_lb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.food_category_lb.FormattingEnabled = true;
+            this.food_category_lb.Location = new System.Drawing.Point(3, 3);
+            this.food_category_lb.Name = "food_category_lb";
+            this.food_category_lb.Size = new System.Drawing.Size(197, 305);
+            this.food_category_lb.TabIndex = 0;
+            this.food_category_lb.SelectedIndexChanged += new System.EventHandler(this.food_category_lb_SelectedIndexChanged);
             // 
-            // panel1
+            // recipe_lb
             // 
-            this.panel1.Controls.Add(this.saveChanges);
-            this.panel1.Controls.Add(this.ShowRecipeBtn);
-            this.panel1.Controls.Add(this.back_to_manager);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(370, 28);
-            this.panel1.TabIndex = 6;
+            this.recipe_lb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recipe_lb.FormattingEnabled = true;
+            this.recipe_lb.Location = new System.Drawing.Point(206, 3);
+            this.recipe_lb.Name = "recipe_lb";
+            this.recipe_lb.Size = new System.Drawing.Size(209, 305);
+            this.recipe_lb.TabIndex = 1;
+            this.recipe_lb.SelectedIndexChanged += new System.EventHandler(this.recipe_lb_SelectedIndexChanged);
+            // 
+            // ingridients_lb
+            // 
+            this.ingridients_lb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ingridients_lb.FormattingEnabled = true;
+            this.ingridients_lb.Location = new System.Drawing.Point(421, 3);
+            this.ingridients_lb.Name = "ingridients_lb";
+            this.ingridients_lb.Size = new System.Drawing.Size(208, 305);
+            this.ingridients_lb.TabIndex = 2;
             // 
             // saveChanges
             // 
-            this.saveChanges.Dock = System.Windows.Forms.DockStyle.Right;
-            this.saveChanges.Location = new System.Drawing.Point(268, 0);
+            this.saveChanges.Dock = System.Windows.Forms.DockStyle.Left;
+            this.saveChanges.Location = new System.Drawing.Point(0, 0);
             this.saveChanges.Name = "saveChanges";
-            this.saveChanges.Size = new System.Drawing.Size(102, 28);
+            this.saveChanges.Size = new System.Drawing.Size(102, 26);
             this.saveChanges.TabIndex = 6;
             this.saveChanges.Text = "Update";
             this.saveChanges.UseVisualStyleBackColor = true;
@@ -98,9 +109,9 @@
             // ShowRecipeBtn
             // 
             this.ShowRecipeBtn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ShowRecipeBtn.Location = new System.Drawing.Point(149, 0);
+            this.ShowRecipeBtn.Location = new System.Drawing.Point(102, 0);
             this.ShowRecipeBtn.Name = "ShowRecipeBtn";
-            this.ShowRecipeBtn.Size = new System.Drawing.Size(120, 28);
+            this.ShowRecipeBtn.Size = new System.Drawing.Size(120, 26);
             this.ShowRecipeBtn.TabIndex = 5;
             this.ShowRecipeBtn.Text = "Show Recipes";
             this.ShowRecipeBtn.UseVisualStyleBackColor = true;
@@ -108,10 +119,10 @@
             // 
             // back_to_manager
             // 
-            this.back_to_manager.Dock = System.Windows.Forms.DockStyle.Left;
-            this.back_to_manager.Location = new System.Drawing.Point(0, 0);
+            this.back_to_manager.Dock = System.Windows.Forms.DockStyle.Right;
+            this.back_to_manager.Location = new System.Drawing.Point(377, 0);
             this.back_to_manager.Name = "back_to_manager";
-            this.back_to_manager.Size = new System.Drawing.Size(149, 28);
+            this.back_to_manager.Size = new System.Drawing.Size(149, 26);
             this.back_to_manager.TabIndex = 0;
             this.back_to_manager.Text = "Back to manager routine";
             this.back_to_manager.UseVisualStyleBackColor = true;
@@ -119,23 +130,50 @@
             // 
             // DeleteRecipe
             // 
-            this.DeleteRecipe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DeleteRecipe.Location = new System.Drawing.Point(379, 3);
+            this.DeleteRecipe.Dock = System.Windows.Forms.DockStyle.Right;
+            this.DeleteRecipe.Location = new System.Drawing.Point(526, 0);
             this.DeleteRecipe.Name = "DeleteRecipe";
-            this.DeleteRecipe.Size = new System.Drawing.Size(256, 30);
+            this.DeleteRecipe.Size = new System.Drawing.Size(106, 26);
             this.DeleteRecipe.TabIndex = 8;
             this.DeleteRecipe.Text = "Delete Row";
             this.DeleteRecipe.UseVisualStyleBackColor = true;
             this.DeleteRecipe.Click += new System.EventHandler(this.DeleteRecipe_Click);
             // 
-            // StuffGridView
+            // mainRecipeTable
             // 
-            this.StuffGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.StuffGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StuffGridView.Location = new System.Drawing.Point(379, 39);
-            this.StuffGridView.Name = "StuffGridView";
-            this.StuffGridView.Size = new System.Drawing.Size(256, 307);
-            this.StuffGridView.TabIndex = 9;
+            this.mainRecipeTable.ColumnCount = 1;
+            this.mainRecipeTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.mainRecipeTable.Controls.Add(this.recipeLayoutTable, 0, 1);
+            this.mainRecipeTable.Controls.Add(this.buttonsPanel, 0, 0);
+            this.mainRecipeTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainRecipeTable.Location = new System.Drawing.Point(0, 0);
+            this.mainRecipeTable.Name = "mainRecipeTable";
+            this.mainRecipeTable.RowCount = 2;
+            this.mainRecipeTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.455587F));
+            this.mainRecipeTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.54441F));
+            this.mainRecipeTable.Size = new System.Drawing.Size(638, 349);
+            this.mainRecipeTable.TabIndex = 8;
+            // 
+            // buttonsPanel
+            // 
+            this.buttonsPanel.Controls.Add(this.back_to_manager);
+            this.buttonsPanel.Controls.Add(this.DeleteRecipe);
+            this.buttonsPanel.Controls.Add(this.panel1);
+            this.buttonsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonsPanel.Location = new System.Drawing.Point(3, 3);
+            this.buttonsPanel.Name = "buttonsPanel";
+            this.buttonsPanel.Size = new System.Drawing.Size(632, 26);
+            this.buttonsPanel.TabIndex = 8;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.ShowRecipeBtn);
+            this.panel1.Controls.Add(this.saveChanges);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(274, 26);
+            this.panel1.TabIndex = 1;
             // 
             // Recipes
             // 
@@ -143,29 +181,32 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 349);
             this.ControlBox = false;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.mainRecipeTable);
             this.Name = "Recipes";
             this.Text = "Recipes";
-            ((System.ComponentModel.ISupportInitialize)(this.recipeGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeBindingSource)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.recipeLayoutTable.ResumeLayout(false);
+            this.mainRecipeTable.ResumeLayout(false);
+            this.buttonsPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.StuffGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView recipeGridView;
         private System.Windows.Forms.BindingSource recipeBindingSource;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel recipeLayoutTable;
         private System.Windows.Forms.Button ShowRecipeBtn;
         private System.Windows.Forms.Button back_to_manager;
         private System.Windows.Forms.Button saveChanges;
         private System.Windows.Forms.Button DeleteRecipe;
-        private System.Windows.Forms.DataGridView StuffGridView;
+        private System.Windows.Forms.TableLayoutPanel mainRecipeTable;
+        private System.Windows.Forms.ListBox food_category_lb;
+        private System.Windows.Forms.ListBox recipe_lb;
+        private System.Windows.Forms.ListBox ingridients_lb;
+        private System.Windows.Forms.Panel buttonsPanel;
+        private System.Windows.Forms.Panel panel1;
         
     }
 }

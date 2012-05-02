@@ -99,5 +99,20 @@ namespace CafeSystem
             Application.Exit();
         }
 
+        private void md5_btn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void workerGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5)
+            {
+                string s = workerGridView1[Constants.PASSWORD_COLUMN, e.RowIndex].Value.ToString();
+                workerGridView1[Constants.PASSWORD_COLUMN, e.RowIndex].Value =
+                    MD5cheksum.getMd5Hash(s);
+            }
+        }
+
     }
 }
