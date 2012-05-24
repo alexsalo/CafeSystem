@@ -1,0 +1,5 @@
+C:\csharp\CafeSystem\CafeASPMVC\CafeASPMVC\bin\CafeASPMVC.dll
+C:\csharp\CafeSystem\CafeASPMVC\CafeASPMVC\bin\CafeASPMVC.pdb
+C:\csharp\CafeSystem\CafeASPMVC\CafeASPMVC\obj\Debug\ResolveAssemblyReference.cache
+C:\csharp\CafeSystem\CafeASPMVC\CafeASPMVC\obj\Debug\CafeASPMVC.dll
+C:\csharp\CafeSystem\CafeASPMVC\CafeASPMVC\obj\Debug\CafeASPMVC.pdb

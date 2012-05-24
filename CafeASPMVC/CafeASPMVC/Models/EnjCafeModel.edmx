@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="cafesystemModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="cafesystemModelStoreContainer">
+          <EntitySet Name="department" EntityType="cafesystemModel.Store.department" store:Type="Tables" Schema="cafesystem" />
+          <EntitySet Name="food_category" EntityType="cafesystemModel.Store.food_category" store:Type="Tables" Schema="cafesystem" />
+          <EntitySet Name="ingridient" EntityType="cafesystemModel.Store.ingridient" store:Type="Tables" Schema="cafesystem" />
+          <EntitySet Name="measure" EntityType="cafesystemModel.Store.measure" store:Type="Tables" Schema="cafesystem" />
+          <EntitySet Name="order_stuff" EntityType="cafesystemModel.Store.order_stuff" store:Type="Tables" Schema="cafesystem" />
+          <EntitySet Name="ordert" EntityType="cafesystemModel.Store.ordert" store:Type="Tables" Schema="cafesystem" />
+          <EntitySet Name="recipe" EntityType="cafesystemModel.Store.recipe" store:Type="Tables" Schema="cafesystem" />
+          <EntitySet Name="recipe_stuff" EntityType="cafesystemModel.Store.recipe_stuff" store:Type="Tables" Schema="cafesystem" />
+          <EntitySet Name="supply" EntityType="cafesystemModel.Store.supply" store:Type="Tables" Schema="cafesystem" />
+          <EntitySet Name="worker" EntityType="cafesystemModel.Store.worker" store:Type="Tables" Schema="cafesystem" />
+          <AssociationSet Name="Relationship10" Association="cafesystemModel.Store.Relationship10">
+            <End Role="department" EntitySet="department" />
+            <End Role="worker" EntitySet="worker" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship14" Association="cafesystemModel.Store.Relationship14">
+            <End Role="supply" EntitySet="supply" />
+            <End Role="ingridient" EntitySet="ingridient" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship15" Association="cafesystemModel.Store.Relationship15">
+            <End Role="food_category" EntitySet="food_category" />
+            <End Role="recipe" EntitySet="recipe" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship19" Association="cafesystemModel.Store.Relationship19">
+            <End Role="recipe" EntitySet="recipe" />
+            <End Role="order_stuff" EntitySet="order_stuff" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship20" Association="cafesystemModel.Store.Relationship20">
+            <End Role="ordert" EntitySet="ordert" />
+            <End Role="order_stuff" EntitySet="order_stuff" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship5" Association="cafesystemModel.Store.Relationship5">
+            <End Role="measure" EntitySet="measure" />
+            <End Role="ingridient" EntitySet="ingridient" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship8" Association="cafesystemModel.Store.Relationship8">
+            <End Role="ingridient" EntitySet="ingridient" />
+            <End Role="recipe_stuff" EntitySet="recipe_stuff" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship9" Association="cafesystemModel.Store.Relationship9">
+            <End Role="recipe" EntitySet="recipe" />
+            <End Role="recipe_stuff" EntitySet="recipe_stuff" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="department_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="description" Type="char" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="food_category">
+          <Key>
+            <PropertyRef Name="food_category_id" />
+          </Key>
+          <Property Name="food_category_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="description" Type="char" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="ingridient">
+          <Key>
+            <PropertyRef Name="ingridient_id" />
+          </Key>
+          <Property Name="ingridient_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="description" Type="char" MaxLength="20" />
+          <Property Name="cost" Type="int" Nullable="false" />
+          <Property Name="measure_id" Type="int" />
+          <Property Name="supply_id" Type="int" />
+        </EntityType>
+        <EntityType Name="measure">
+          <Key>
+            <PropertyRef Name="measure_id" />
+          </Key>
+          <Property Name="measure_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="char" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="order_stuff">
+          <Key>
+            <PropertyRef Name="order_stuff_id" />
+            <PropertyRef Name="recipe_id" />
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_stuff_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="recipe_id" Type="int" Nullable="false" />
+          <Property Name="order_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ordert">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="int" Nullable="false" />
+          <Property Name="totalcost" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="recipe">
+          <Key>
+            <PropertyRef Name="recipe_id" />
+          </Key>
+          <Property Name="recipe_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="description" Type="char" MaxLength="200" />
+          <Property Name="food_category_id" Type="int" />
+          <Property Name="totalcost" Type="int" />
+        </EntityType>
+        <EntityType Name="recipe_stuff">
+          <Key>
+            <PropertyRef Name="ingridient_id" />
+            <PropertyRef Name="recipe_id" />
+            <PropertyRef Name="recipe_stuff_id" />
+          </Key>
+          <Property Name="ingridient_id" Type="int" Nullable="false" />
+          <Property Name="recipe_id" Type="int" Nullable="false" />
+          <Property Name="recipe_stuff_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="supply">
+          <Key>
+            <PropertyRef Name="supply_id" />
+          </Key>
+          <Property Name="supply_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="worker">
+          <Key>
+            <PropertyRef Name="worker_id" />
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="worker_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="surname" Type="char" MaxLength="20" />
+          <Property Name="cellphone" Type="char" MaxLength="20" />
+          <Property Name="department_id" Type="int" Nullable="false" />
+          <Property Name="password" Type="char" MaxLength="41" />
+        </EntityType>
+        <Association Name="Relationship10">
+          <End Role="department" Type="cafesystemModel.Store.department" Multiplicity="1" />
+          <End Role="worker" Type="cafesystemModel.Store.worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="worker">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship14">
+          <End Role="supply" Type="cafesystemModel.Store.supply" Multiplicity="0..1" />
+          <End Role="ingridient" Type="cafesystemModel.Store.ingridient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supply">
+              <PropertyRef Name="supply_id" />
+            </Principal>
+            <Dependent Role="ingridient">
+              <PropertyRef Name="supply_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship15">
+          <End Role="food_category" Type="cafesystemModel.Store.food_category" Multiplicity="0..1" />
+          <End Role="recipe" Type="cafesystemModel.Store.recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_category">
+              <PropertyRef Name="food_category_id" />
+            </Principal>
+            <Dependent Role="recipe">
+              <PropertyRef Name="food_category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship19">
+          <End Role="recipe" Type="cafesystemModel.Store.recipe" Multiplicity="1" />
+          <End Role="order_stuff" Type="cafesystemModel.Store.order_stuff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="recipe">
+              <PropertyRef Name="recipe_id" />
+            </Principal>
+            <Dependent Role="order_stuff">
+              <PropertyRef Name="recipe_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship20">
+          <End Role="ordert" Type="cafesystemModel.Store.ordert" Multiplicity="1" />
+          <End Role="order_stuff" Type="cafesystemModel.Store.order_stuff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordert">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="order_stuff">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship5">
+          <End Role="measure" Type="cafesystemModel.Store.measure" Multiplicity="0..1" />
+          <End Role="ingridient" Type="cafesystemModel.Store.ingridient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="measure">
+              <PropertyRef Name="measure_id" />
+            </Principal>
+            <Dependent Role="ingridient">
+              <PropertyRef Name="measure_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship8">
+          <End Role="ingridient" Type="cafesystemModel.Store.ingridient" Multiplicity="1" />
+          <End Role="recipe_stuff" Type="cafesystemModel.Store.recipe_stuff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ingridient">
+              <PropertyRef Name="ingridient_id" />
+            </Principal>
+            <Dependent Role="recipe_stuff">
+              <PropertyRef Name="ingridient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship9">
+          <End Role="recipe" Type="cafesystemModel.Store.recipe" Multiplicity="1" />
+          <End Role="recipe_stuff" Type="cafesystemModel.Store.recipe_stuff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="recipe">
+              <PropertyRef Name="recipe_id" />
+            </Principal>
+            <Dependent Role="recipe_stuff">
+              <PropertyRef Name="recipe_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cafesystemModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="enjCafeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="department" EntityType="cafesystemModel.department" />
+          <EntitySet Name="food_category" EntityType="cafesystemModel.food_category" />
+          <EntitySet Name="ingridient" EntityType="cafesystemModel.ingridient" />
+          <EntitySet Name="measure" EntityType="cafesystemModel.measure" />
+          <EntitySet Name="order_stuff" EntityType="cafesystemModel.order_stuff" />
+          <EntitySet Name="ordert" EntityType="cafesystemModel.ordert" />
+          <EntitySet Name="recipe" EntityType="cafesystemModel.recipe" />
+          <EntitySet Name="recipe_stuff" EntityType="cafesystemModel.recipe_stuff" />
+          <EntitySet Name="supply" EntityType="cafesystemModel.supply" />
+          <EntitySet Name="worker" EntityType="cafesystemModel.worker" />
+          <AssociationSet Name="Relationship10" Association="cafesystemModel.Relationship10">
+            <End Role="department" EntitySet="department" />
+            <End Role="worker" EntitySet="worker" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship15" Association="cafesystemModel.Relationship15">
+            <End Role="food_category" EntitySet="food_category" />
+            <End Role="recipe" EntitySet="recipe" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship14" Association="cafesystemModel.Relationship14">
+            <End Role="supply" EntitySet="supply" />
+            <End Role="ingridient" EntitySet="ingridient" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship5" Association="cafesystemModel.Relationship5">
+            <End Role="measure" EntitySet="measure" />
+            <End Role="ingridient" EntitySet="ingridient" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship8" Association="cafesystemModel.Relationship8">
+            <End Role="ingridient" EntitySet="ingridient" />
+            <End Role="recipe_stuff" EntitySet="recipe_stuff" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship19" Association="cafesystemModel.Relationship19">
+            <End Role="recipe" EntitySet="recipe" />
+            <End Role="order_stuff" EntitySet="order_stuff" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship20" Association="cafesystemModel.Relationship20">
+            <End Role="ordert" EntitySet="ordert" />
+            <End Role="order_stuff" EntitySet="order_stuff" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship9" Association="cafesystemModel.Relationship9">
+            <End Role="recipe" EntitySet="recipe" />
+            <End Role="recipe_stuff" EntitySet="recipe_stuff" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="description" Type="String" />
+          <NavigationProperty Name="worker" Relationship="cafesystemModel.Relationship10" FromRole="department" ToRole="worker" />
+        </EntityType>
+        <EntityType Name="food_category">
+          <Key>
+            <PropertyRef Name="food_category_id" />
+          </Key>
+          <Property Name="food_category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="description" Type="String" />
+          <NavigationProperty Name="recipe" Relationship="cafesystemModel.Relationship15" FromRole="food_category" ToRole="recipe" />
+        </EntityType>
+        <EntityType Name="ingridient">
+          <Key>
+            <PropertyRef Name="ingridient_id" />
+          </Key>
+          <Property Name="ingridient_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="description" Type="String" />
+          <Property Name="cost" Type="Int32" Nullable="false" />
+          <Property Name="measure_id" Type="Int32" />
+          <Property Name="supply_id" Type="Int32" />
+          <NavigationProperty Name="supply" Relationship="cafesystemModel.Relationship14" FromRole="ingridient" ToRole="supply" />
+          <NavigationProperty Name="measure" Relationship="cafesystemModel.Relationship5" FromRole="ingridient" ToRole="measure" />
+          <NavigationProperty Name="recipe_stuff" Relationship="cafesystemModel.Relationship8" FromRole="ingridient" ToRole="recipe_stuff" />
+        </EntityType>
+        <EntityType Name="measure">
+          <Key>
+            <PropertyRef Name="measure_id" />
+          </Key>
+          <Property Name="measure_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <NavigationProperty Name="ingridient" Relationship="cafesystemModel.Relationship5" FromRole="measure" ToRole="ingridient" />
+        </EntityType>
+        <EntityType Name="order_stuff">
+          <Key>
+            <PropertyRef Name="order_stuff_id" />
+            <PropertyRef Name="recipe_id" />
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_stuff_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="recipe_id" Type="Int32" Nullable="false" />
+          <Property Name="order_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="recipe" Relationship="cafesystemModel.Relationship19" FromRole="order_stuff" ToRole="recipe" />
+          <NavigationProperty Name="ordert" Relationship="cafesystemModel.Relationship20" FromRole="order_stuff" ToRole="ordert" />
+        </EntityType>
+        <EntityType Name="ordert">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="Int32" Nullable="false" />
+          <Property Name="totalcost" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="order_stuff" Relationship="cafesystemModel.Relationship20" FromRole="ordert" ToRole="order_stuff" />
+        </EntityType>
+        <EntityType Name="recipe">
+          <Key>
+            <PropertyRef Name="recipe_id" />
+          </Key>
+          <Property Name="recipe_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="description" Type="String" />
+          <Property Name="food_category_id" Type="Int32" />
+          <Property Name="totalcost" Type="Int32" />
+          <NavigationProperty Name="food_category" Relationship="cafesystemModel.Relationship15" FromRole="recipe" ToRole="food_category" />
+          <NavigationProperty Name="order_stuff" Relationship="cafesystemModel.Relationship19" FromRole="recipe" ToRole="order_stuff" />
+          <NavigationProperty Name="recipe_stuff" Relationship="cafesystemModel.Relationship9" FromRole="recipe" ToRole="recipe_stuff" />
+        </EntityType>
+        <EntityType Name="recipe_stuff">
+          <Key>
+            <PropertyRef Name="ingridient_id" />
+            <PropertyRef Name="recipe_id" />
+            <PropertyRef Name="recipe_stuff_id" />
+          </Key>
+          <Property Name="ingridient_id" Type="Int32" Nullable="false" />
+          <Property Name="recipe_id" Type="Int32" Nullable="false" />
+          <Property Name="recipe_stuff_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ingridient" Relationship="cafesystemModel.Relationship8" FromRole="recipe_stuff" ToRole="ingridient" />
+          <NavigationProperty Name="recipe" Relationship="cafesystemModel.Relationship9" FromRole="recipe_stuff" ToRole="recipe" />
+        </EntityType>
+        <EntityType Name="supply">
+          <Key>
+            <PropertyRef Name="supply_id" />
+          </Key>
+          <Property Name="supply_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ingridient" Relationship="cafesystemModel.Relationship14" FromRole="supply" ToRole="ingridient" />
+        </EntityType>
+        <EntityType Name="worker">
+          <Key>
+            <PropertyRef Name="worker_id" />
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="worker_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="surname" Type="String" />
+          <Property Name="cellphone" Type="String" />
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+          <Property Name="password" Type="String" />
+          <NavigationProperty Name="department" Relationship="cafesystemModel.Relationship10" FromRole="worker" ToRole="department" />
+        </EntityType>
+        <Association Name="Relationship10">
+          <End Role="department" Type="cafesystemModel.department" Multiplicity="1" />
+          <End Role="worker" Type="cafesystemModel.worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="worker">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship15">
+          <End Role="food_category" Type="cafesystemModel.food_category" Multiplicity="0..1" />
+          <End Role="recipe" Type="cafesystemModel.recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_category">
+              <PropertyRef Name="food_category_id" />
+            </Principal>
+            <Dependent Role="recipe">
+              <PropertyRef Name="food_category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship14">
+          <End Role="supply" Type="cafesystemModel.supply" Multiplicity="0..1" />
+          <End Role="ingridient" Type="cafesystemModel.ingridient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supply">
+              <PropertyRef Name="supply_id" />
+            </Principal>
+            <Dependent Role="ingridient">
+              <PropertyRef Name="supply_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship5">
+          <End Role="measure" Type="cafesystemModel.measure" Multiplicity="0..1" />
+          <End Role="ingridient" Type="cafesystemModel.ingridient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="measure">
+              <PropertyRef Name="measure_id" />
+            </Principal>
+            <Dependent Role="ingridient">
+              <PropertyRef Name="measure_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship8">
+          <End Role="ingridient" Type="cafesystemModel.ingridient" Multiplicity="1" />
+          <End Role="recipe_stuff" Type="cafesystemModel.recipe_stuff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ingridient">
+              <PropertyRef Name="ingridient_id" />
+            </Principal>
+            <Dependent Role="recipe_stuff">
+              <PropertyRef Name="ingridient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship19">
+          <End Role="recipe" Type="cafesystemModel.recipe" Multiplicity="1" />
+          <End Role="order_stuff" Type="cafesystemModel.order_stuff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="recipe">
+              <PropertyRef Name="recipe_id" />
+            </Principal>
+            <Dependent Role="order_stuff">
+              <PropertyRef Name="recipe_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship20">
+          <End Role="ordert" Type="cafesystemModel.ordert" Multiplicity="1" />
+          <End Role="order_stuff" Type="cafesystemModel.order_stuff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordert">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="order_stuff">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship9">
+          <End Role="recipe" Type="cafesystemModel.recipe" Multiplicity="1" >
+          </End>
+          <End Role="recipe_stuff" Type="cafesystemModel.recipe_stuff" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="recipe">
+              <PropertyRef Name="recipe_id" />
+            </Principal>
+            <Dependent Role="recipe_stuff">
+              <PropertyRef Name="recipe_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cafesystemModelStoreContainer" CdmEntityContainer="enjCafeEntities">
+          <EntitySetMapping Name="department"><EntityTypeMapping TypeName="cafesystemModel.department"><MappingFragment StoreEntitySet="department">
+            <ScalarProperty Name="department_id" ColumnName="department_id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="description" ColumnName="description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="food_category"><EntityTypeMapping TypeName="cafesystemModel.food_category"><MappingFragment StoreEntitySet="food_category">
+            <ScalarProperty Name="food_category_id" ColumnName="food_category_id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="description" ColumnName="description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ingridient"><EntityTypeMapping TypeName="cafesystemModel.ingridient"><MappingFragment StoreEntitySet="ingridient">
+            <ScalarProperty Name="ingridient_id" ColumnName="ingridient_id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="description" ColumnName="description" />
+            <ScalarProperty Name="cost" ColumnName="cost" />
+            <ScalarProperty Name="measure_id" ColumnName="measure_id" />
+            <ScalarProperty Name="supply_id" ColumnName="supply_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="measure"><EntityTypeMapping TypeName="cafesystemModel.measure"><MappingFragment StoreEntitySet="measure">
+            <ScalarProperty Name="measure_id" ColumnName="measure_id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="order_stuff"><EntityTypeMapping TypeName="cafesystemModel.order_stuff"><MappingFragment StoreEntitySet="order_stuff">
+            <ScalarProperty Name="order_stuff_id" ColumnName="order_stuff_id" />
+            <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+            <ScalarProperty Name="order_id" ColumnName="order_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ordert"><EntityTypeMapping TypeName="cafesystemModel.ordert"><MappingFragment StoreEntitySet="ordert">
+            <ScalarProperty Name="order_id" ColumnName="order_id" />
+            <ScalarProperty Name="totalcost" ColumnName="totalcost" />
+            <ScalarProperty Name="date" ColumnName="date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="recipe"><EntityTypeMapping TypeName="cafesystemModel.recipe"><MappingFragment StoreEntitySet="recipe">
+            <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="description" ColumnName="description" />
+            <ScalarProperty Name="food_category_id" ColumnName="food_category_id" />
+            <ScalarProperty Name="totalcost" ColumnName="totalcost" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="recipe_stuff"><EntityTypeMapping TypeName="cafesystemModel.recipe_stuff"><MappingFragment StoreEntitySet="recipe_stuff">
+            <ScalarProperty Name="ingridient_id" ColumnName="ingridient_id" />
+            <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+            <ScalarProperty Name="recipe_stuff_id" ColumnName="recipe_stuff_id" />
+            <ScalarProperty Name="count" ColumnName="count" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="supply"><EntityTypeMapping TypeName="cafesystemModel.supply"><MappingFragment StoreEntitySet="supply">
+            <ScalarProperty Name="supply_id" ColumnName="supply_id" />
+            <ScalarProperty Name="count" ColumnName="count" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="worker"><EntityTypeMapping TypeName="cafesystemModel.worker"><MappingFragment StoreEntitySet="worker">
+            <ScalarProperty Name="worker_id" ColumnName="worker_id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="surname" ColumnName="surname" />
+            <ScalarProperty Name="cellphone" ColumnName="cellphone" />
+            <ScalarProperty Name="department_id" ColumnName="department_id" />
+            <ScalarProperty Name="password" ColumnName="password" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="EnjCafeModel">
+        <EntityTypeShape EntityType="cafesystemModel.department" Width="1.5" PointX="5.75" PointY="7.5" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.food_category" Width="1.5" PointX="0.75" PointY="4" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.ingridient" Width="1.5" PointX="3" PointY="7.875" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.measure" Width="1.5" PointX="0.75" PointY="7.375" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.order_stuff" Width="1.5" PointX="5.25" PointY="3.875" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.ordert" Width="1.5" PointX="3" PointY="1" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.recipe" Width="1.5" PointX="2.75" PointY="4.25" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.recipe_stuff" Width="1.5" PointX="5.25" PointY="0.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.supply" Width="1.5" PointX="0.75" PointY="9.625" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafesystemModel.worker" Width="1.5" PointX="8" PointY="7.25" Height="2.3648893229166665" IsExpanded="true" />
+        <AssociationConnector Association="cafesystemModel.Relationship10" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.25" PointY="8.3939925130208337" />
+          <ConnectorPoint PointX="8" PointY="8.3939925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="cafesystemModel.Relationship15" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.0189925130208337" />
+          <ConnectorPoint PointX="2.75" PointY="5.0189925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="cafesystemModel.Relationship14" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="10.12474609375" />
+          <ConnectorPoint PointX="3" PointY="10.12474609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="cafesystemModel.Relationship5" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.422841796875" />
+          <ConnectorPoint PointX="3" PointY="8.422841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="cafesystemModel.Relationship8" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.875" />
+          <ConnectorPoint PointX="4.875" PointY="7.5" />
+          <ConnectorPoint PointX="4.875" PointY="1.8362939453124998" />
+          <ConnectorPoint PointX="5.25" PointY="1.8362939453124998" />
+        </AssociationConnector>
+        <AssociationConnector Association="cafesystemModel.Relationship19" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.25" PointY="5.1595530364583322" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="5.1595530364583313" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="5.1595530364583322" />
+          <ConnectorPoint PointX="5.25" PointY="5.1595530364583322" />
+        </AssociationConnector>
+        <AssociationConnector Association="cafesystemModel.Relationship20" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.7256763337339738" />
+          <ConnectorPoint PointX="4.8160744349011217" PointY="3.0417507686350942" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="3.1596018988328529" />
+          <ConnectorPoint PointX="5.0625" PointY="3.2881763337339738" />
+          <ConnectorPoint PointX="5.0625" PointY="4.3388196145833327" />
+          <ConnectorPoint PointX="5.25" PointY="4.3388196145833327" />
+        </AssociationConnector>
+        <AssociationConnector Association="cafesystemModel.Relationship9" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.84375" PointY="4.25" />
+          <ConnectorPoint PointX="2.84375" PointY="0.84375" />
+          <ConnectorPoint PointX="5.25" PointY="0.84375" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

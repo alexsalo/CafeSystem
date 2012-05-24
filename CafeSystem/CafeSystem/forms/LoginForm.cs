@@ -28,6 +28,12 @@ namespace CafeSystem
                 login_tb.Text = "AlexSalo";
                 pass_tb.Text = "123";
             }
+            ///test purposes
+            if (DEP == Constants.COOCKERDEP_ID)
+            {
+                login_tb.Text = "CookerFast";
+                pass_tb.Text = "111";
+            }
         }
 
         private void yes_btn_Click(object sender, EventArgs e)
@@ -60,6 +66,18 @@ namespace CafeSystem
                                 {
                                     ManagerForm m_managerForm = new ManagerForm(m_mainform);
                                     m_managerForm.Show();
+                                    this.Close();                                    
+                                }
+                                else MessageBox.Show("Incorrect password");
+                            else
+                                MessageBox.Show("You don't have permission");
+                            break;
+                        case Constants.COOCKERDEP_ID:
+                            if (w.department_id == Constants.COOCKERDEP_ID)
+                                if (MD5cheksum.verifyMd5Hash(pass_tb.Text, w.password))
+                                {
+                                    CookerForm m_cookerForm = new CookerForm(m_mainform);
+                                    m_cookerForm.Show();
                                     this.Close();                                    
                                 }
                                 else MessageBox.Show("Incorrect password");

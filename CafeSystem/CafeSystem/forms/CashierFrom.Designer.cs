@@ -34,10 +34,10 @@
             this.DismissBtn = new System.Windows.Forms.Button();
             this.MakeOrderBtn = new System.Windows.Forms.Button();
             this.DeleteSelectedBtn = new System.Windows.Forms.Button();
-            this.ItemsflowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.orderList = new System.Windows.Forms.ListBox();
             this.totalOrder_tb = new System.Windows.Forms.TextBox();
+            this.ItemsflowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -117,14 +117,6 @@
             this.DeleteSelectedBtn.UseVisualStyleBackColor = true;
             this.DeleteSelectedBtn.Click += new System.EventHandler(this.DeleteSelectedBtn_Click);
             // 
-            // ItemsflowLayoutPanel1
-            // 
-            this.ItemsflowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ItemsflowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
-            this.ItemsflowLayoutPanel1.Name = "ItemsflowLayoutPanel1";
-            this.ItemsflowLayoutPanel1.Size = new System.Drawing.Size(433, 446);
-            this.ItemsflowLayoutPanel1.TabIndex = 3;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
@@ -156,6 +148,14 @@
             this.totalOrder_tb.Name = "totalOrder_tb";
             this.totalOrder_tb.Size = new System.Drawing.Size(182, 20);
             this.totalOrder_tb.TabIndex = 0;
+            // 
+            // ItemsflowLayoutPanel1
+            // 
+            this.ItemsflowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemsflowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
+            this.ItemsflowLayoutPanel1.Name = "ItemsflowLayoutPanel1";
+            this.ItemsflowLayoutPanel1.Size = new System.Drawing.Size(433, 446);
+            this.ItemsflowLayoutPanel1.TabIndex = 3;
             // 
             // CashierFrom
             // 

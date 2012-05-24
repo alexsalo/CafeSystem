@@ -35,5 +35,12 @@ namespace CafeSystem
             this.Hide();
             m_loginFoem.Show();
         }
+
+        private void coockerBtn_Click(object sender, EventArgs e)
+        {
+            LoginForm m_loginFoem = new LoginForm(this, Constants.COOCKERDEP_ID);
+            this.Hide();
+            m_loginFoem.Show();
+        }
     }
 }

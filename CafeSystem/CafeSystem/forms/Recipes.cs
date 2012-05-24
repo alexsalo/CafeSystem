@@ -16,6 +16,7 @@ namespace CafeSystem
     {
         private cafesystemEntities4 cafeContext;
         private ManagerForm m_manageForm;
+        private CookerForm m_cookerForm;
 
         public Recipes(ManagerForm f)
         {
@@ -23,12 +24,22 @@ namespace CafeSystem
             m_manageForm = f;
         }
 
+        public Recipes(CookerForm f)
+        {
+            InitializeComponent();
+            m_cookerForm = f;
+            back_to_manager.Text = "Back to cooker routine";
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             //Dispose the object context.
             if (cafeContext != null)
                 cafeContext.Dispose();
-            m_manageForm.Show();
+            if (m_cookerForm != null)
+                m_cookerForm.Show();
+            else 
+                m_manageForm.Show();
             this.Close();
         }
 

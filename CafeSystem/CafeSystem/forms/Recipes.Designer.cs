@@ -52,8 +52,8 @@
             // 
             this.recipeLayoutTable.ColumnCount = 3;
             this.recipeLayoutTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.recipeLayoutTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
-            this.recipeLayoutTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 214F));
+            this.recipeLayoutTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197F));
+            this.recipeLayoutTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 199F));
             this.recipeLayoutTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 243F));
             this.recipeLayoutTable.Controls.Add(this.food_category_lb, 0, 0);
             this.recipeLayoutTable.Controls.Add(this.recipe_lb, 1, 0);
@@ -72,7 +72,7 @@
             this.food_category_lb.FormattingEnabled = true;
             this.food_category_lb.Location = new System.Drawing.Point(3, 3);
             this.food_category_lb.Name = "food_category_lb";
-            this.food_category_lb.Size = new System.Drawing.Size(197, 305);
+            this.food_category_lb.Size = new System.Drawing.Size(230, 305);
             this.food_category_lb.TabIndex = 0;
             this.food_category_lb.SelectedIndexChanged += new System.EventHandler(this.food_category_lb_SelectedIndexChanged);
             // 
@@ -80,9 +80,9 @@
             // 
             this.recipe_lb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recipe_lb.FormattingEnabled = true;
-            this.recipe_lb.Location = new System.Drawing.Point(206, 3);
+            this.recipe_lb.Location = new System.Drawing.Point(239, 3);
             this.recipe_lb.Name = "recipe_lb";
-            this.recipe_lb.Size = new System.Drawing.Size(209, 305);
+            this.recipe_lb.Size = new System.Drawing.Size(191, 305);
             this.recipe_lb.TabIndex = 1;
             this.recipe_lb.SelectedIndexChanged += new System.EventHandler(this.recipe_lb_SelectedIndexChanged);
             // 
@@ -90,9 +90,9 @@
             // 
             this.ingridients_lb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ingridients_lb.FormattingEnabled = true;
-            this.ingridients_lb.Location = new System.Drawing.Point(421, 3);
+            this.ingridients_lb.Location = new System.Drawing.Point(436, 3);
             this.ingridients_lb.Name = "ingridients_lb";
-            this.ingridients_lb.Size = new System.Drawing.Size(208, 305);
+            this.ingridients_lb.Size = new System.Drawing.Size(193, 305);
             this.ingridients_lb.TabIndex = 2;
             // 
             // saveChanges

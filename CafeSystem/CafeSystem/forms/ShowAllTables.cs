@@ -108,9 +108,12 @@ namespace CafeSystem
         {
             if (e.ColumnIndex == 5)
             {
-                string s = workerGridView1[Constants.PASSWORD_COLUMN, e.RowIndex].Value.ToString();
-                workerGridView1[Constants.PASSWORD_COLUMN, e.RowIndex].Value =
-                    MD5cheksum.getMd5Hash(s);
+                if (workerGridView1[Constants.PASSWORD_COLUMN, e.RowIndex].Value != null)
+                {
+                    string s = workerGridView1[Constants.PASSWORD_COLUMN, e.RowIndex].Value.ToString();
+                    workerGridView1[Constants.PASSWORD_COLUMN, e.RowIndex].Value =
+                        MD5cheksum.getMd5Hash(s);
+                }
             }
         }
 
