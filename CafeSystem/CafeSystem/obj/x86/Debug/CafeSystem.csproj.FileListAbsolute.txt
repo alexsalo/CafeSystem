@@ -14,3 +14,4 @@ C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\GenerateResource.read.1
 C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.exe
 C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.pdb
+C:\csharp\CafeSystem\CafeSystem\CafeSystem\obj\x86\Debug\CafeSystem.AddRecipeForm.resources

@@ -41,6 +41,7 @@
             this.mainRecipeTable = new System.Windows.Forms.TableLayoutPanel();
             this.buttonsPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.add_recipe_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.recipeBindingSource)).BeginInit();
             this.recipeLayoutTable.SuspendLayout();
             this.mainRecipeTable.SuspendLayout();
@@ -167,13 +168,25 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.add_recipe_btn);
             this.panel1.Controls.Add(this.ShowRecipeBtn);
             this.panel1.Controls.Add(this.saveChanges);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(274, 26);
+            this.panel1.Size = new System.Drawing.Size(371, 26);
             this.panel1.TabIndex = 1;
+            // 
+            // add_recipe_btn
+            // 
+            this.add_recipe_btn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.add_recipe_btn.Location = new System.Drawing.Point(222, 0);
+            this.add_recipe_btn.Name = "add_recipe_btn";
+            this.add_recipe_btn.Size = new System.Drawing.Size(110, 26);
+            this.add_recipe_btn.TabIndex = 7;
+            this.add_recipe_btn.Text = "Add recipe";
+            this.add_recipe_btn.UseVisualStyleBackColor = true;
+            this.add_recipe_btn.Click += new System.EventHandler(this.add_recipe_btn_Click);
             // 
             // Recipes
             // 
@@ -207,6 +220,7 @@
         private System.Windows.Forms.ListBox ingridients_lb;
         private System.Windows.Forms.Panel buttonsPanel;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button add_recipe_btn;
         
     }
 }

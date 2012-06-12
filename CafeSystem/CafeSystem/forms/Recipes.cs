@@ -17,6 +17,7 @@ namespace CafeSystem
         private cafesystemEntities4 cafeContext;
         private ManagerForm m_manageForm;
         private CookerForm m_cookerForm;
+        private AddRecipeForm m_addrecipeForm;
 
         public Recipes(ManagerForm f)
         {
@@ -48,6 +49,7 @@ namespace CafeSystem
             cafeContext = new cafesystemEntities4();
 
             IEnumerable<string> foodcatQuery = cafeContext.ExecuteStoreQuery<string>("select name from food_category");
+            food_category_lb.Items.Clear();
             foreach (string s in foodcatQuery )
                 food_category_lb.Items.Add(s);
         }    
@@ -91,6 +93,12 @@ namespace CafeSystem
             ingridients_lb.Items.Clear();
             foreach (string s in stuffQuery)
                 ingridients_lb.Items.Add(s);
+        }
+
+        private void add_recipe_btn_Click(object sender, EventArgs e)
+        {
+            m_addrecipeForm = new AddRecipeForm();
+            m_addrecipeForm.Show();
         }
 
     }

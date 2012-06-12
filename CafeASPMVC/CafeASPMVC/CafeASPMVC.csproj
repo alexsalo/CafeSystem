@@ -88,6 +88,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\fill_food_category.js" />
+    <Content Include="Scripts\tabs.js" />
     <Content Include="Views\Menu\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

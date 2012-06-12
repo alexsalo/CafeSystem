@@ -62,7 +62,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CafeModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="cafesystemDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cafesystemDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="forms\AddNewRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\AddNewRecipeForm.Designer.cs">
+      <DependentUpon>AddNewRecipeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\CookerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +119,9 @@
     <Compile Include="forms\ShowAllTables.Designer.cs">
       <DependentUpon>ShowAllTables.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="forms\AddNewRecipeForm.resx">
+      <DependentUpon>AddNewRecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\CashierFrom.resx">
       <DependentUpon>CashierFrom.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +157,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CafeModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="cafesystemDataSet.xsc">
+      <DependentUpon>cafesystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="cafesystemDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cafesystemDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="cafesystemDataSet.xss">
+      <DependentUpon>cafesystemDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
